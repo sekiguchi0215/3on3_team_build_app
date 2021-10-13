@@ -39,7 +39,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  # accept: "image/png, image/jpeg, image/gif, image/jpg"
+  # accept: "image/png, image/jpeg, image/gif, image/jpg" 等記述することでフロント側にもバリデーションをかける事ができる。
+
+  def size_range
+    0..5.megabytes
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
