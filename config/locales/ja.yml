@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ユーザー名
+        icon: アイコン
+        introduction: 自己紹介
