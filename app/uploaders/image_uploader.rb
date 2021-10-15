@@ -50,7 +50,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process convert: "png"
 
   def filename
-    super.chomp(File.extname(super)) + ".jpg" if original_filename.present?
+    super.chomp(File.extname(super)) + ".png" if original_filename.present?
   end
 
   # Override the filename of the uploaded files:
