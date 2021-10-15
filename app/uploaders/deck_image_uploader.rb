@@ -43,6 +43,8 @@ class DeckImageUploader < CarrierWave::Uploader::Base
     0..5.megabytes
   end
 
+  process resize_to_limit: [640, 360]
+
   process convert: "png"
 
   def filename
