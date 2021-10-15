@@ -45,6 +45,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     0..5.megabytes
   end
 
+  process resize_to_limit: [300, 300]
+
   process convert: "png"
 
   def filename
