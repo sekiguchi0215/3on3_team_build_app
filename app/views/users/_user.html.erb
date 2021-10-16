@@ -1,0 +1,9 @@
+<div class="user-content">
+  <div class="user-icon">
+    <%= image_tag user.icon.url, :size => "100x100" %>
+    <%= user.nickname %>
+  </div>
+  <div class="user-introduction">
+    <%= simple_format user.introduction %>
+  </div>
+</div>
