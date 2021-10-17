@@ -4,7 +4,7 @@
     <%= @user.nickname %>
   </div>
   <div class="user-show-introduction">
-    <%= simple_format @user.introduction %>
+    <%= simple_format (h @user.introduction) %>
   </div>
   <hr>
 </div>
