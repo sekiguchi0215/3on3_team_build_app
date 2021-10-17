@@ -4,6 +4,6 @@
     <%= user.nickname %>
   </div>
   <div class="user-introduction">
-    <%= simple_format user.introduction %>
+    <%= simple_format (h user.introduction) %>
   </div>
 </div>
