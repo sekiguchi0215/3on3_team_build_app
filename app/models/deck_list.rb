@@ -4,10 +4,7 @@ class DeckList < ApplicationRecord
   validates :status, presence: true
   validates :deck_list, presence: true
 
-  enum status: {
-    public: 0,
-    private: 1,
-  }
+  enum status: [:public, :private], _prefix: true
 
   mount_uploader :deck_list, DeckImageUploader
 end
