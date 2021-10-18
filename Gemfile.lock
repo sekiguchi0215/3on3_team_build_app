@@ -96,6 +96,8 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.10.0)
       devise (>= 4.8.0)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     ffi (1.15.4)
     globalid (0.5.2)
@@ -252,6 +254,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   devise
   devise-i18n
+  enum_help
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick
@@ -276,4 +279,4 @@ RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
-   2.2.24
+   2.2.29
