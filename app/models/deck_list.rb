@@ -1,6 +1,7 @@
 class DeckList < ApplicationRecord
   belongs_to :user
 
+  validates :status, presence: true
   validates :deck_list, presence: true
 
   enum status: {
