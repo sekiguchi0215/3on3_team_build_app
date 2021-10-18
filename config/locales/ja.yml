@@ -2,8 +2,13 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      deck_list: デッキリスト
     attributes:
       user:
         nickname: ユーザー名
         icon: アイコン
         introduction: 自己紹介
+      deck_list:
+        deck_list: デッキリスト
+        status: 公開 / 非公開
+        content: フリースペース
