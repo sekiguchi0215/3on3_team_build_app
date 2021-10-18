@@ -8,4 +8,6 @@ class DeckList < ApplicationRecord
     public: 0,
     private: 1,
   }
+
+  mount_uploader :deck_list, DeckImageUploader
 end
