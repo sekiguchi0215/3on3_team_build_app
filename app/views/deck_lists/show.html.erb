@@ -2,5 +2,8 @@
   <%= image_tag @deck.deck_list.url %>
 </p>
 <p>
-  <%= @deck.content %>
+  <%= simple_format (h @deck.content) %>
+</p>
+<p>
+  <%= link_to "編集", edit_deck_list_path(@deck) %>
 </p>
