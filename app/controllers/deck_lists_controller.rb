@@ -1,5 +1,6 @@
 class DeckListsController < ApplicationController
   def index
+    @decks = current_user.deck_lists.order(:updated_at)
   end
 
   def show
