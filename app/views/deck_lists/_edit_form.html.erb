@@ -1,0 +1,18 @@
+<%= image_tag @deck.deck_list.url %>
+<%= form_with model: @deck, loacle: true do |f| %>
+  <p>
+    <%= f.label :content %>
+  </p>
+  <p>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.label :status, "公開" %>
+    <%= f.radio_button :status, :public, checked: true %>
+    <%= f.label :status, "非公開" %>
+    <%= f.radio_button :status, :private %>
+  </p>
+  <p>
+    <%= f.submit "更新", class: "btn btn-success" %>
+  </p>
+<% end %>

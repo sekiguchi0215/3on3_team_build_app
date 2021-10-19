@@ -17,9 +17,13 @@ class DeckListsController < ApplicationController
   end
 
   def edit
+    @deck = DeckList.find(params[:id])
   end
 
   def update
+    @deck = DeckList.find(params[:id])
+    @deck.update(deck_list_params)
+    redirect_to @deck
   end
 
   def destroy
