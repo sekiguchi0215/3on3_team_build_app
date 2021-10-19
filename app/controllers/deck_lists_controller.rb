@@ -4,6 +4,7 @@ class DeckListsController < ApplicationController
   end
 
   def show
+    @deck = DeckList.find(params[:id])
   end
 
   def new
