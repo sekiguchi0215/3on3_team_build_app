@@ -27,6 +27,9 @@ class DeckListsController < ApplicationController
   end
 
   def destroy
+    deck = DeckList.find(params[:id])
+    deck.destroy
+    redirect_to deck_lists_path
   end
 
   private
