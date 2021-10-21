@@ -1,0 +1,7 @@
+<h1>登録済みデッキ</h1>
+<% if @decks.exists? %>
+  <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-info" %>
+  <%= render partial: "deck", collection: @decks %>
+<% else %>
+  <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-primary" %>
+<% end %>

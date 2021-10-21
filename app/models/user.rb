@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :rememberable, :validatable
 
   mount_uploader :icon, ImageUploader
+
+  has_many :deck_lists, dependent: :destroy
 end
