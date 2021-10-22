@@ -1,8 +1,11 @@
 class RecruitmentsController < ApplicationController
   def new
+    @recruitment = Recruitment.new
   end
 
   def create
+    recruitment = current_user.recruitments.create!(recruitment_params)
+    redirect_to recruitment
   end
 
   def index
@@ -18,5 +21,11 @@ class RecruitmentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def recruitment_params
+    params.require(:recruitment).permit(:event_title, :number_of_applicants, :recruitment_condition, :introduction)
   end
 end
