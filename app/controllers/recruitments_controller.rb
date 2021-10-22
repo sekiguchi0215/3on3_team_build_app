@@ -26,6 +26,9 @@ class RecruitmentsController < ApplicationController
   end
 
   def destroy
+    @recruitment = Recruitment.find(params[:id])
+    @recruitment.destroy
+    redirect_to recruitments_path, alert: "募集を削除しました。"
   end
 
   private

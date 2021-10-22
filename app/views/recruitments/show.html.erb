@@ -23,5 +23,6 @@
   </div>
   <div class="edit-and-delete">
     <%= link_to "編集", edit_recruitment_path(@recruitment) %>
+    <%= link_to "削除", recruitment_path(@recruitment), method: :delete, data: { confirm: "削除しますか？"} %>
   </div>
 </div>
