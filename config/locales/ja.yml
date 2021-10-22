@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       deck_list: デッキリスト
+      recruitment: メンバー募集
     attributes:
       user:
         nickname: ユーザー名
