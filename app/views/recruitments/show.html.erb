@@ -1,2 +1,24 @@
-<h1>Recruitments#show</h1>
-<p>Find me in app/views/recruitments/show.html.erb</p>
+<div class="recruit-show-container">
+  <div class="recruit-show-user">
+    <%= link_to user_path(@recruitment.user) do %>
+      <%= image_tag @recruitment.user.icon.url, size: "150x150" %>
+      <%= @recruitment.user.nickname %>
+    <% end %>
+  </div>
+  <div class="recruit-show-cell">
+    <strong>イベント名</strong>
+    <%= @recruitment.event_title %>
+  </div>
+  <div class="recruit-show-cell">
+    <strong>募集人数</strong>
+    <%= @recruitment.number_of_applicants_i18n %>
+  </div>
+  <div class="recruit-show-cell">
+    <strong>募集要項</strong>
+    <%= @recruitment.recruitment_condition_i18n %>
+  </div>
+  <div class="recruit-show-cell">
+    <strong><span>募集詳細</span></strong>
+    <%= simple_format (h @recruitment.introduction) %>
+  </div>
+</div>
