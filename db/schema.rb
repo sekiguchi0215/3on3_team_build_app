@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_135931) do
+ActiveRecord::Schema.define(version: 2021_10_22_094425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2021_10_18_135931) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_deck_lists_on_user_id"
+  end
+
+  create_table "recruitments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "number_of_applicants", null: false
+    t.string "event_title", null: false
+    t.integer "recruitment_condition", null: false
+    t.text "introduction"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_recruitments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +49,5 @@ ActiveRecord::Schema.define(version: 2021_10_18_135931) do
   end
 
   add_foreign_key "deck_lists", "users"
+  add_foreign_key "recruitments", "users"
 end
