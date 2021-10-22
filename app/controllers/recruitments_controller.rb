@@ -9,6 +9,7 @@ class RecruitmentsController < ApplicationController
   end
 
   def index
+    @recruitments = Recruitment.order(:updated_at)
   end
 
   def show
