@@ -17,9 +17,12 @@ class RecruitmentsController < ApplicationController
   end
 
   def edit
+    @recruitment = Recruitment.find(params[:id])
   end
 
   def update
+    recruitment = Recruitment.update(recruitment_params)
+    redirect_to recruitment
   end
 
   def destroy

@@ -21,4 +21,7 @@
     <strong><span>募集詳細</span></strong>
     <%= simple_format (h @recruitment.introduction) %>
   </div>
+  <div class="edit-and-delete">
+    <%= link_to "編集", edit_recruitment_path(@recruitment) %>
+  </div>
 </div>
