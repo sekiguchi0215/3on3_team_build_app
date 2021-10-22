@@ -12,3 +12,8 @@ ja:
         deck_list: デッキリスト
         status: 公開 / 非公開
         content: フリースペース
+      recruitment:
+        number_of_applicants: 募集人数
+        event_title: イベント名
+        recruitment_contidion: 募集条件
+        introduction: 募集詳細

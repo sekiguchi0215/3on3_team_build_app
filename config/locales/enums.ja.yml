@@ -4,3 +4,11 @@ ja:
       status:
         public: '公開'
         private: '非公開'
+    recruitment:
+      number_of_applicants:
+        one: '１人'
+        two: '２人'
+      recruitment_condition:
+        anyone: '誰でも'
+        enjoy: '初心者歓迎'
+        seriousness: '結果重視'
