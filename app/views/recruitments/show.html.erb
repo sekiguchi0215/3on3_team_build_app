@@ -22,7 +22,9 @@
     <%= simple_format (h @recruitment.introduction) %>
   </div>
   <div class="edit-and-delete">
-    <%= link_to "編集", edit_recruitment_path(@recruitment) %>
-    <%= link_to "削除", recruitment_path(@recruitment), method: :delete, data: { confirm: "削除しますか？"} %>
+    <% if @recruitment.user == current_user %>
+      <%= link_to "編集", edit_recruitment_path(@recruitment) %>
+      <%= link_to "削除", recruitment_path(@recruitment), method: :delete, data: { confirm: "削除しますか？"} %>
+    <% end %>
   </div>
 </div>
