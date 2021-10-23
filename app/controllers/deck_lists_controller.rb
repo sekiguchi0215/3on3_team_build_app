@@ -14,21 +14,30 @@ class DeckListsController < ApplicationController
   end
 
   def create
-    deck_list = current_user.deck_lists.create!(deck_list_params)
-    redirect_to user_path(current_user.id)
+    @deck = current_user.deck_lists.new(deck_list_params)
+    if @deck.save
+      redirect_to user_path(current_user.id), notice: "デッキを登録しました。"
+    else
+      flash.now[:alert] = "投稿に失敗しました。"
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @deck.update(deck_list_params)
-    redirect_to user_path(current_user.id)
+    if @deck.update(deck_list_params)
+      redirect_to user_path(current_user.id), notice: "更新しました。"
+    else
+      flash.now[:alert] = "更新に失敗しました。"
+      render :edit
+    end
   end
 
   def destroy
     @deck.destroy
-    redirect_to deck_lists_path
+    redirect_to deck_lists_path, alert: "削除しました。"
   end
 
   private
