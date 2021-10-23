@@ -1,0 +1,21 @@
+<div class="recruit-index-container">
+  <%= link_to recruitment_path(recruitment) do %>
+    <div class="recruit-index-cell">
+      <strong>イベント名</strong>
+      <%= recruitment.event_title %>
+    </div>
+    <div class="recruit-index-cell">
+      <strong>募集人数</strong>
+      <%= recruitment.number_of_applicants_i18n %>
+    </div>
+    <div class="recruit-index-cell">
+      <%= recruitment.recruitment_condition_i18n %>
+    </div>
+  <% end %>
+  <div class="recruit-user-cell">
+    <%= link_to user_path(recruitment.user.id) do %>
+      <%= image_tag recruitment.user.icon.url, size: "50x50" %>
+      <%= recruitment.user.nickname %>
+    <% end %>
+  </div>
+</div>

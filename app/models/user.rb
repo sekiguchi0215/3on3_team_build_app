@@ -7,4 +7,5 @@ class User < ApplicationRecord
   mount_uploader :icon, ImageUploader
 
   has_many :deck_lists, dependent: :destroy
+  has_many :recruitments, dependent: :destroy
 end

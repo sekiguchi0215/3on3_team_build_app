@@ -1,0 +1,29 @@
+<%= form_with model: @recruitment, locale: true do |f| %>
+  <div class="recruitment-cell">
+    <p>
+      <strong><%= f.label :event_title %></strong>
+      <%= f.text_field :event_title, required: true %>
+    </p>
+  </div>
+  <div class="recruitment-cell">
+    <p>
+      <strong><%= f.label :number_of_applicants %></strong>
+      <br>
+      <%= f.collection_radio_buttons :number_of_applicants, Recruitment.number_of_applicants_i18n, :first, :last %>
+    </p>
+  </div>
+  <div class="recruitment-cell">
+    <p>
+      <strong><%= f.label :recruitment_condition %></strong>
+      <br>
+      <%= f.collection_radio_buttons :recruitment_condition, Recruitment.recruitment_conditions_i18n, :first, :last %>
+    </p>
+  </div>
+  <div class="recruitment-cell">
+    <p>
+      <strong><%= f.label :introduction %></strong>
+      <%= f.text_area :introduction %>
+    </p>
+  </div>
+  <%= f.submit "投稿する" %>
+<% end %>

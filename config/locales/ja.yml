@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       deck_list: デッキリスト
+      recruitment: メンバー募集
     attributes:
       user:
         nickname: ユーザー名
@@ -12,3 +13,8 @@ ja:
         deck_list: デッキリスト
         status: 公開 / 非公開
         content: フリースペース
+      recruitment:
+        number_of_applicants: 募集人数
+        event_title: イベント名
+        recruitment_condition: 募集条件
+        introduction: 募集詳細
