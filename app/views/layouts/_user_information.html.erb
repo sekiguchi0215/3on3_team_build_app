@@ -1,7 +1,9 @@
-<div>
-  ようこそ、
-  <strong>
-    <%= current_user.nickname %>
-  </strong>
-  さん
-</div>
+<% if user_signed_in? %>
+  <div>
+    ようこそ、
+    <strong>
+      <%= current_user.nickname %>
+    </strong>
+    さん
+  </div>
+<% end %>
