@@ -13,9 +13,11 @@
       <%= render "layouts/header" %>
       <%= render "layouts/user_information" %>
     </header>
-    <main>
+    <main >
       <%= render "layouts/flash" %>
-      <%= yield %>
+      <div class="base-container <%= max_width %>">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
