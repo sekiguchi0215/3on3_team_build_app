@@ -9,4 +9,8 @@ class Recruitment < ApplicationRecord
 
   enum number_of_applicants: [:one, :two], _prefix: true
   enum recruitment_condition: [:anyone, :enjoy, :seriousness], _prefix: true
+
+  def entried_by?(user)
+    entries.exists?(user_id: user.id)
+  end
 end
