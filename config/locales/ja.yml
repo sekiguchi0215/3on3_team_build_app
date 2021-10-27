@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       deck_list: デッキリスト
       recruitment: メンバー募集
+      entry: 応募
     attributes:
       user:
         nickname: ユーザー名
