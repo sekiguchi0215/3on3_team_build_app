@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :deck_lists, dependent: :destroy
   has_many :recruitments, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :entried_recruitment, through: :entries, source: :recruitment
 end
