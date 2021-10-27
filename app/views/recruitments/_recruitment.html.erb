@@ -11,6 +11,13 @@
     <div class="recruit-index-cell">
       <%= recruitment.recruitment_condition_i18n %>
     </div>
+    <div class="recruit-index-cell">
+      <% if recruitment.entried_by?(current_user) %>
+        <%= link_to "応募済", recruitment_entries_path(recruitment), method: :delete %>
+      <% else %>
+        <%= link_to "応募する", recruitment_entries_path(recruitment), method: :post %>
+      <% end %>
+    </div>
   <% end %>
   <div class="recruit-user-cell">
     <%= link_to user_path(recruitment.user.id) do %>
