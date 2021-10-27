@@ -6,5 +6,7 @@ Rails.application.routes.draw do
                      }
   resources :users, only: [:index, :show]
   resources :deck_lists
-  resources :recruitments
+  resources :recruitments do
+    resource :entries, only: [:create, :destroy]
+  end
 end
