@@ -11,12 +11,12 @@
     <div class="recruit-index-cell">
       <%= recruitment.recruitment_condition_i18n %>
     </div>
-    <div class="recruit-index-cell">
+    <div id="recruitment-<%= recruitment.id %>" class="recruit-index-cell">
       <% unless recruitment.user == current_user %>
         <% if recruitment.entried_by?(current_user) %>
-          <%= render "entries/unentry" %>
+          <%= render "entries/unentry", recruitment: recruitment %>
         <% else %>
-          <%= render "entries/entry" %>
+          <%= render "entries/entry", recruitment: recruitment %>
         <% end %>
       <% end %>
     </div>

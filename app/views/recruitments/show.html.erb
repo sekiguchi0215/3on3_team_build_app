@@ -21,7 +21,7 @@
     <strong><span>募集詳細</span></strong>
     <%= simple_format (h @recruitment.introduction) %>
   </div>
-  <div class="recruit-show-cell">
+  <div id="recruitment-<%= @recruitment.id %>"  class="recruit-show-cell">
     <% unless @recruitment.user == current_user %>
       <% if @recruitment.entried_by?(current_user) %>
         <%= render "entries/unentry", recruitment: @recruitment %>
