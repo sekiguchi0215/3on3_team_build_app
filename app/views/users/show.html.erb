@@ -15,4 +15,14 @@
   <% else %>
     <p>公開中のデッキはありません。</p>
   <% end %>
+  <hr>
+  <div class="user-show-cell">
+    <% if @user == current_user %>
+      <% if @entries.exists? %>
+        <%= render partial: "recruitments/recruitment", collection: @entries %>
+      <% else %>
+        まだ応募していません。
+      <% end %>
+    <% end %>
+  </div>
 </div>
