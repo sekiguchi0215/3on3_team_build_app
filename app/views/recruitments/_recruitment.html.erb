@@ -11,16 +11,18 @@
     <div class="recruit-index-cell">
       <%= recruitment.recruitment_condition_i18n %>
     </div>
-    <div id="recruitment-<%= recruitment.id %>" class="recruit-index-cell">
-      <% unless recruitment.user == current_user %>
-        <% if recruitment.entried_by?(current_user) %>
-          <%= render "entries/unentry", recruitment: recruitment %>
-        <% else %>
-          <%= render "entries/entry", recruitment: recruitment %>
-        <% end %>
-      <% end %>
-    </div>
   <% end %>
+  <div id="recruitment-<%= recruitment.id %>" class="recruit-index-cell">
+    <% if recruitment.user == current_user %>
+      <p>応募人数：<%= recruitment.entries_count %></p>
+    <% else %>
+      <% if recruitment.entried_by?(current_user) %>
+        <%= render "entries/unentry", recruitment: recruitment %>
+      <% else %>
+        <%= render "entries/entry", recruitment: recruitment %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="recruit-user-cell">
     <%= link_to user_path(recruitment.user.id) do %>
       <%= image_tag recruitment.user.icon.url, size: "50x50" %>

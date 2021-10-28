@@ -21,6 +21,7 @@ class RecruitmentsController < ApplicationController
 
   def show
     @recruitment = Recruitment.find(params[:id])
+    @users = @recruitment.entry_users
   end
 
   def edit

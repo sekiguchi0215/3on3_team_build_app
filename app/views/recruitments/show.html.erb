@@ -22,7 +22,9 @@
     <%= simple_format (h @recruitment.introduction) %>
   </div>
   <div id="recruitment-<%= @recruitment.id %>"  class="recruit-show-cell">
-    <% unless @recruitment.user == current_user %>
+    <% if @recruitment.user == current_user %>
+      <p>応募人数：<%= @recruitment.entries_count %></p>
+    <% else %>
       <% if @recruitment.entried_by?(current_user) %>
         <%= render "entries/unentry", recruitment: @recruitment %>
       <% else %>
@@ -30,10 +32,18 @@
       <% end %>
     <% end %>
   </div>
-  <div class="edit-and-delete">
-    <% if @recruitment.user == current_user %>
+  <% if @recruitment.user == current_user %>
+    <div class="edit-and-delete">
       <%= link_to "編集", edit_recruitment_path(@recruitment) %>
       <%= link_to "削除", recruitment_path(@recruitment), method: :delete, data: { confirm: "削除しますか？"} %>
-    <% end %>
-  </div>
+    </div>
+    <hr>
+    <div class="entry-users">
+      <% if @users.exists? %>
+        <%= render partial: "entry_user", collection: @users %>
+      <% else %>
+        <p>まだ応募がありません。</p>
+      <% end %>
+    </div>
+  <% end %>
 </div>
