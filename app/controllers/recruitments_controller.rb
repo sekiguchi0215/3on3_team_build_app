@@ -16,11 +16,12 @@ class RecruitmentsController < ApplicationController
   end
 
   def index
-    @recruitments = Recruitment.order(:updated_at)
+    @recruitments = Recruitment.includes(:user, :entries).order(:updated_at)
   end
 
   def show
     @recruitment = Recruitment.find(params[:id])
+    @users = @recruitment.entry_users
   end
 
   def edit

@@ -10,5 +10,6 @@ class UsersController < ApplicationController
     else
       @decks = @user.deck_lists.includes(:user).where(status: "public")
     end
+    @entries = @user.entried_recruitment
   end
 end

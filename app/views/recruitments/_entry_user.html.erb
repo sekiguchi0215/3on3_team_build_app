@@ -1,0 +1,6 @@
+<div class="entry-user">
+  <%= link_to user_path(entry_user) do %>
+    <%= image_tag entry_user.icon.url, size: "50x50" %>
+    <%= entry_user.nickname %>
+  <% end %>
+</div>
