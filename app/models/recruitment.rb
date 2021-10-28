@@ -11,6 +11,6 @@ class Recruitment < ApplicationRecord
   enum recruitment_condition: [:anyone, :enjoy, :seriousness], _prefix: true
 
   def entried_by?(user)
-    entries.exists?(user_id: user.id)
+    entries.any? { |entry| entry.user_id == user.id }
   end
 end
