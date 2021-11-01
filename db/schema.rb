@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_153552) do
+ActiveRecord::Schema.define(version: 2021_11_01_141326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2021_10_28_153552) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_deck_lists_on_user_id"
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_direct_messages_on_room_id"
+    t.index ["user_id", "room_id"], name: "index_direct_messages_on_user_id_and_room_id", unique: true
+    t.index ["user_id"], name: "index_direct_messages_on_user_id"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -48,6 +59,20 @@ ActiveRecord::Schema.define(version: 2021_10_28_153552) do
     t.index ["user_id"], name: "index_recruitments_on_user_id"
   end
 
+  create_table "room_keys", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_room_keys_on_room_id"
+    t.index ["user_id"], name: "index_room_keys_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "icon"
@@ -61,7 +86,11 @@ ActiveRecord::Schema.define(version: 2021_10_28_153552) do
   end
 
   add_foreign_key "deck_lists", "users"
+  add_foreign_key "direct_messages", "rooms"
+  add_foreign_key "direct_messages", "users"
   add_foreign_key "entries", "recruitments"
   add_foreign_key "entries", "users"
   add_foreign_key "recruitments", "users"
+  add_foreign_key "room_keys", "rooms"
+  add_foreign_key "room_keys", "users"
 end
