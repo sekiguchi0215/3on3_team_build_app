@@ -6,8 +6,17 @@ class User < ApplicationRecord
 
   mount_uploader :icon, ImageUploader
 
+  # デッキ登録機能
   has_many :deck_lists, dependent: :destroy
+
+  # 募集機能
   has_many :recruitments, dependent: :destroy
+
+  # 応募機能
   has_many :entries, dependent: :destroy
   has_many :entried_recruitment, through: :entries, source: :recruitment
+
+  # ダイレクトメッセージ機能
+  has_many :rooms, dependent: :destroy
+  has_many :direct_messages, dependent: :destroy
 end
