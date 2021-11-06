@@ -11,6 +11,8 @@ class UsersController < ApplicationController
       @decks = @user.deck_lists.includes(:user).where(status: "public")
     end
     @entries = @user.entried_recruitment
+
+    # ダイレクトメッセージ機能の処理
     @currentUserRoomKey = RoomKey.where(user_id: current_user.id)
     @userRoomKey = RoomKey.where(user_id: @user.id)
 
