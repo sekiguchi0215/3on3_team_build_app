@@ -27,7 +27,7 @@
   </div>
   <div class="user-show-cell">
     <% unless @user == current_user %>
-      <% if @haveRoom == ture %>
+      <% if @haveRoom == true %>
         <%= link_to "メッセージを送る", room_path(@roomId) %>
       <% else %>
         <%= form_with model: @room, local: true do |f| %>
