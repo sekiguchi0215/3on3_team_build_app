@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :recruitments do
     resource :entries, only: [:create, :destroy]
   end
+  resources :rooms, only: [:index, :show, :create, :destroy]
+  resources :direct_messages, only: [:create, :update]
 end

@@ -5,6 +5,7 @@ ja:
       deck_list: デッキリスト
       recruitment: メンバー募集
       entry: 応募
+      direct_message: ダイレクトメッセージ
     attributes:
       user:
         nickname: ユーザー名
@@ -19,3 +20,5 @@ ja:
         event_title: イベント名
         recruitment_condition: 募集条件
         introduction: 募集詳細
+      direct_message:
+        message: メッセージ
