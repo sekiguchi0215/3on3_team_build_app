@@ -1,2 +1,17 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<div class="room-container">
+  <div class="room-top">
+    <span><%= @anotherUser.nickname %> さん</span>
+  </div>
+  <hr>
+  <div class="direct-message-container">
+    <% if @direct_messages.exists? %>
+      <%= render partial: "direct_message", collection: @direct_messages %>
+    <% else %>
+      <div>まだメッセージはありません。</div>
+    <% end %>
+  </div>
+  <hr>
+  <div class="direct-message-form">
+    <%= render "form" %>
+  </div>
+</div>

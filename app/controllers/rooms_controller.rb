@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     if RoomKey.where(user_id: current_user.id, room_id: @room.id).present?
+      # 相手ユーザーを取得するための記述
       anotherUserRoomKey = @room.room_keys.where.not(user_id: current_user.id)
       @anotherUser = User.find(anotherUserRoomKey.first[:user_id])
       @direct_messages = @room.direct_messages

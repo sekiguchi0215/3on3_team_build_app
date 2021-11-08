@@ -1,0 +1,7 @@
+<% if direct_message.user == current_user %>
+  <%= direct_message.message %>
+  <%= link_to "削除", direct_message_path(direct_message), method: :patch, data: { confirm: "削除しますか？" }, class: "btn btn-sm btn-danger" %>
+<% else %>
+  <%= image_tag direct_message.user.icon.url, :size => "50x50" %>
+  <%= direct_message.message %>
+<% end %>
