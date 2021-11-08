@@ -18,9 +18,11 @@ class UsersController < ApplicationController
 
     unless @user.id == current_user.id
       @currentUserRoomKey.each do |current_user|
-        if current_user.room_id == user.room_id
-          @haveRoom = true
-          @roomId = current_user.room_id
+        @userRoomKey.each do |user|
+          if current_user.room_id == user.room_id
+            @haveRoom = true
+            @roomId = current_user.room_id
+          end
         end
       end
       unless @haveRoom
