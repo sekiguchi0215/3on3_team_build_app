@@ -19,4 +19,8 @@ class User < ApplicationRecord
   # ダイレクトメッセージ機能
   has_many :rooms, dependent: :destroy
   has_many :direct_messages, dependent: :destroy
+
+  # チーム機能
+  has_many :members, dependent: :destroy
+  has_many :teams, through: :members
 end
