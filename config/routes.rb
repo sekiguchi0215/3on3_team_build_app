@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
   resources :rooms, only: [:index, :show, :create, :destroy]
   resources :direct_messages, only: [:create, :update]
+  resources :teams, only: [:new, :create, :show, :edit, :update]
 end
