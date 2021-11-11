@@ -1,0 +1,7 @@
+<div class="room-index-container">
+  <% if @rooms.exists? %>
+    <%= render partial: "room", collection: @rooms %>
+  <% else %>
+    <%= link_to "ダイレクトメッセージをはじめましょう。", users_path %>
+  <% end %>
+</div>

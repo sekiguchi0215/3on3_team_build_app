@@ -1,4 +1,8 @@
 class RoomsController < ApplicationController
+  def index
+    @rooms = current_user.rooms.order(:created_at)
+  end
+
   def show
     @room = Room.find(params[:id])
     if RoomKey.where(user_id: current_user.id, room_id: @room.id).present?
