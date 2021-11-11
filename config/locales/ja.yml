@@ -6,6 +6,7 @@ ja:
       recruitment: メンバー募集
       entry: 応募
       direct_message: ダイレクトメッセージ
+      team: チーム
     attributes:
       user:
         nickname: ユーザー名
@@ -22,3 +23,5 @@ ja:
         introduction: 募集詳細
       direct_message:
         message: メッセージ
+      team:
+        name: チーム名
