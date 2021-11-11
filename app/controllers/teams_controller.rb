@@ -13,6 +13,10 @@ class TeamsController < ApplicationController
     end
   end
 
+  def index
+    @teams = current_user.teams.order(:created_at)
+  end
+
   def show
     @team = Team.find(params[:id])
     @members = @team.users.order(:created_at)
