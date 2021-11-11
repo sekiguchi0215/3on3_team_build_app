@@ -1,0 +1,6 @@
+<div class="team-member">
+  <%= link_to user_path(user) do %>
+    <%= image_tag user.icon.url, :size => "50x50" %>
+    <%= user.nickname %>
+  <% end %>
+</div>

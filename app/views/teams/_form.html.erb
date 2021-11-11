@@ -1,0 +1,12 @@
+<%= form_with model: @team, local: true do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "チーム名を入力してください。" %>
+  </p>
+  <p>
+    <%= f.collection_check_boxes :user_ids, User.order(:created_at), :id, :nickname %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

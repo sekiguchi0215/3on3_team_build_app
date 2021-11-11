@@ -1,2 +1,12 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<div class="team-container">
+  <div class="team-header">
+    <%= @team.name %>
+  </div>
+  <div class="team-members-container">
+    <%= render partial: "user", collection: @members %>
+  </div>
+  <hr>
+  <div class="team-message-container">
+    メッセージ機能を実装
+  </div>
+</div>
