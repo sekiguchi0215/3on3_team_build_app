@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   def new
     @team = Team.new
-    @team.members << current_user
+    @team.users << current_user
   end
 
   def create
@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @members = @team.members.order(:created_at)
+    @members = @team.users.order(:created_at)
   end
 
   def update
