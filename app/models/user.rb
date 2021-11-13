@@ -24,4 +24,7 @@ class User < ApplicationRecord
   # チーム機能
   has_many :members, dependent: :destroy
   has_many :teams, through: :members
+
+  # チームメッセージ機能
+  has_many :team_messages, dependent: :destroy
 end
