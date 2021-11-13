@@ -1,6 +1,17 @@
+<% users = team.users %>
 <div class="team-cell">
-  <%= link_to team_path(team) do %>
-    <%= team.name %>
+  <% @teams.each do |team| %>
+    <%= link_to team_path(team) do %>
+      <table class="table">
+        <tr>
+          <td>
+            <% users.each do |user| %>
+              <%= image_tag user.icon.url, size: "100x100" %>
+              <%= user.nickname %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
   <% end %>
-  <hr>
 </div>
