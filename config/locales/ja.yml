@@ -7,6 +7,7 @@ ja:
       entry: 応募
       direct_message: ダイレクトメッセージ
       team: チーム
+      team_message: チームメッセージ
     attributes:
       user:
         nickname: ユーザー名
@@ -25,3 +26,5 @@ ja:
         message: メッセージ
       team:
         name: チーム名
+      team_message:
+        message: メッセージ
