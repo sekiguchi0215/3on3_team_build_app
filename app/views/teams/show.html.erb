@@ -7,6 +7,10 @@
   </div>
   <hr>
   <div class="team-message-container">
-    メッセージ機能を実装
+    <%= render partial: "message", collection: @messages %>
+  </div>
+  <hr>
+  <div class="team-message-form">
+    <%= render "team_messages/form" %>
   </div>
 </div>

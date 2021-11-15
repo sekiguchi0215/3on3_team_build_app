@@ -1,0 +1,9 @@
+<div class="team-message">
+  <% if current_user.id == message.user_id %>
+    <%= message.message %>
+    <%= link_to "削除", team_message_path(message), method: :patch, data: { confirm: "削除しますか？" } %>
+  <% else %>
+    <%= image_tag message.user.icon.url, size: "75x75" %>
+    <%= message.message %>
+  <% end %>
+</div>

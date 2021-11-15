@@ -20,6 +20,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @members = @team.users.order(:created_at)
+    @messages = @team.team_messages
   end
 
   def update
