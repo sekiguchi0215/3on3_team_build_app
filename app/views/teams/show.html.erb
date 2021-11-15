@@ -7,7 +7,11 @@
   </div>
   <hr>
   <div class="team-message-container">
-    <%= render partial: "message", collection: @messages %>
+    <% if @messages.exists? %>
+      <%= render partial: "message", collection: @messages %>
+    <% else %>
+      <p>まだメッセージはありません。</p>
+    <% end %>
   </div>
   <hr>
   <div class="team-message-form">

@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @members = @team.users.order(:created_at)
-    @messages = @team.team_messages
+    @messages = @team.team_messages.where.not(is_valid: false)
   end
 
   def update
