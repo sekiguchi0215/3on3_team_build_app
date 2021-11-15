@@ -20,6 +20,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @members = @team.users.order(:created_at)
+    @team_message = TeamMessage.new
     @messages = @team.team_messages.where.not(is_valid: false)
   end
 
