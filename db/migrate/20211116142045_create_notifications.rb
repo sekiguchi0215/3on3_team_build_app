@@ -6,7 +6,7 @@ class CreateNotifications < ActiveRecord::Migration[6.1]
       t.integer :team_id
       t.integer :direct_message_id
       t.string :action
-      t.boolean :checked
+      t.boolean :checked, default: false, null: false
 
       t.timestamps
     end
