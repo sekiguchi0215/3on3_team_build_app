@@ -19,9 +19,13 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @members = @team.users.order(:created_at)
-    @team_message = TeamMessage.new
-    @messages = @team.team_messages.where.not(is_valid: false)
+    if Member.where(user_id: current_user.id, team_id: @team.id).present?
+      @members = @team.users.order(:created_at)
+      @team_message = TeamMessage.new
+      @messages = @team.team_messages.where.not(is_valid: false)
+    else
+      redirect_to root_path, alert: "このチームに所属していません。"
+    end
   end
 
   def update
