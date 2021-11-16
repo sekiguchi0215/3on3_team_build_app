@@ -1,4 +1,6 @@
 class Notification < ApplicationRecord
+  default_scope -> { order(created_at: :desc) }
+
   belongs_to :recruitment, optional: true
   belongs_to :direct_message, optional: true
   belongs_to :team, optional: true
