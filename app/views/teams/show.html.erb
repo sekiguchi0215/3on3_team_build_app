@@ -2,8 +2,8 @@
   <div class="team-header">
     <%= @team.name %>
   </div>
-  <div class="team-members-container">
-    <%= render partial: "user", collection: @members %>
+  <div class="team-members-container" style="display: flex;">
+    <%= render partial: "user_link", collection: @members %>
   </div>
   <hr>
   <div class="team-message-container">

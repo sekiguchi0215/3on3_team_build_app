@@ -1,17 +1,12 @@
 <% users = team.users %>
 <div class="team-cell">
-  <% @teams.each do |team| %>
-    <%= link_to team_path(team) do %>
-      <table class="table">
-        <tr>
-          <td>
-            <% users.each do |user| %>
-              <%= image_tag user.icon.url, size: "100x100" %>
-              <%= user.nickname %>
-            <% end %>
-          </td>
-        </tr>
-      </table>
-    <% end %>
+  <%= link_to team_path(team) do %>
+    <table class="table">
+      <tr>
+        <td style="display: flex;">
+          <%= render partial: "user", collection: users %>
+        </td>
+      </tr>
+    </table>
   <% end %>
 </div>

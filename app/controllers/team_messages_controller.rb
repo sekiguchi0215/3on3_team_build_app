@@ -1,6 +1,5 @@
 class TeamMessagesController < ApplicationController
   def create
-    binding.pry
     if Member.where(user_id: current_user.id, team_id: params[:team_message][:team_id]).present?
       @team_message = TeamMessage.create(team_message_params)
       redirect_to request.referer
