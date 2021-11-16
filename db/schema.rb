@@ -58,14 +58,20 @@ ActiveRecord::Schema.define(version: 2021_11_16_142045) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "visitor_id"
-    t.integer "visited_id"
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "recruitment_id"
     t.integer "team_id"
     t.integer "direct_message_id"
     t.string "action"
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["direct_message_id"], name: "index_notifications_on_direct_message_id"
+    t.index ["recruitment_id"], name: "index_notifications_on_recruitment_id"
+    t.index ["team_id"], name: "index_notifications_on_team_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "recruitments", force: :cascade do |t|
