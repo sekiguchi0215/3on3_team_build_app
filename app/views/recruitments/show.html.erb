@@ -40,7 +40,7 @@
     <hr>
     <div class="entry-users">
       <% if @users.exists? %>
-        <%= render partial: "entry_user", collection: @users %>
+        <%= render "team_form" %>
       <% else %>
         <p>まだ応募がありません。</p>
       <% end %>

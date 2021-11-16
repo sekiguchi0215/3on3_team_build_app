@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_143957) do
+ActiveRecord::Schema.define(version: 2021_11_15_134552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2021_11_01_143957) do
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
+  create_table "members", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_members_on_team_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
   create_table "recruitments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "number_of_applicants", null: false
@@ -74,6 +83,23 @@ ActiveRecord::Schema.define(version: 2021_11_01_143957) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "team_messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.text "message", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_valid", default: true, null: false
+    t.index ["team_id"], name: "index_team_messages_on_team_id"
+    t.index ["user_id"], name: "index_team_messages_on_user_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "icon"
@@ -91,7 +117,11 @@ ActiveRecord::Schema.define(version: 2021_11_01_143957) do
   add_foreign_key "direct_messages", "users"
   add_foreign_key "entries", "recruitments"
   add_foreign_key "entries", "users"
+  add_foreign_key "members", "teams"
+  add_foreign_key "members", "users"
   add_foreign_key "recruitments", "users"
   add_foreign_key "room_keys", "rooms"
   add_foreign_key "room_keys", "users"
+  add_foreign_key "team_messages", "teams"
+  add_foreign_key "team_messages", "users"
 end

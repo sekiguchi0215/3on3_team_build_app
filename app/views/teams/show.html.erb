@@ -1,0 +1,20 @@
+<div class="team-container">
+  <div class="team-header">
+    <%= @team.name %>
+  </div>
+  <div class="team-members-container" style="display: flex;">
+    <%= render partial: "user_link", collection: @members %>
+  </div>
+  <hr>
+  <div class="team-message-container">
+    <% if @messages.exists? %>
+      <%= render partial: "message", collection: @messages %>
+    <% else %>
+      <p>まだメッセージはありません。</p>
+    <% end %>
+  </div>
+  <hr>
+  <div class="team-message-form">
+    <%= render "team_messages/form" %>
+  </div>
+</div>
