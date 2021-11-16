@@ -2,6 +2,7 @@ class Recruitment < ApplicationRecord
   belongs_to :user
   has_many :entries, dependent: :destroy
   has_many :entry_users, through: :entries, source: :user
+  has_many :notifications, dependent: :destroy
 
   validates :event_title, presence: true
   validates :number_of_applicants, presence: true
