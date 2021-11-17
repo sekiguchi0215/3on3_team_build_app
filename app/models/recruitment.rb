@@ -21,7 +21,7 @@ class Recruitment < ApplicationRecord
       notification = current_user.active_notifiactions.new(
         recruitment_id: id,
         visited_id: user_id,
-        action: "like",
+        action: "entry",
       )
 
       notification.save if notification.valid?
