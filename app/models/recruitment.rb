@@ -18,7 +18,7 @@ class Recruitment < ApplicationRecord
   def create_notification_entry!(current_user)
     temp = Notification.where(visitor_id: current_user.id, visited_id: user_id, recruitment_id: id, action: "entry")
     if temp.blank?
-      notification = current_user.active_notifiactions.new(
+      notification = current_user.active_notifications.new(
         recruitment_id: id,
         visited_id: user_id,
         action: "entry",
