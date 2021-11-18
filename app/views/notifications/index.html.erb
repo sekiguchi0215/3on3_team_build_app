@@ -1,5 +1,11 @@
-<% if @active_notifications.exists? %>
-  <%= render partial: "notification", collection: @active_notifications %>
-<% else %>
-  <p>通知はありません。</p>
-<% end %>
+<div class="notification-top">
+  <%= link_to "通知", notifications_path %>
+  <%= link_to "全ての通知", notifications_path(which: "all") %>
+</div>
+<div class="notification-container">
+  <% if @notifications.exists? %>
+    <%= render partial: "notification", collection: @notifications %>
+  <% else %>
+    <p>通知はありません。</p>
+  <% end %>
+</div>
