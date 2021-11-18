@@ -1,0 +1,26 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<% created_at = notification.created_at.strftime("%Y-%m-%d %H:%M") %>
+<% case notification.action %>
+<% when "entry" %>
+<p>
+  <%= link_to user_path(visitor) do %>
+    <%= image_tag visitor.icon.url, size: "50x50" %>
+    <%= visitor.nickname %>
+  <% end %>
+  さんが
+  <%= link_to "あなたの投稿", recruitment_path(notification.recruitment_id) %>に応募しました。
+</p>
+<% when "direct_message" %>
+<p>
+  <%= link_to user_path(visitor) do %>
+    <%= image_tag visitor.icon.url, size: "50x50" %>
+    <%= visitor.nickname %>
+  <% end %>
+  さんから
+  <%= link_to "ダイレクトメッセージ", room_path(notification.room_id) %>
+  が届きました。
+</p>
+<% when "team_message" %>
+<p></p>
+<% end %>
