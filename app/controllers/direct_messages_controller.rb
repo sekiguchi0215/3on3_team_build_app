@@ -2,8 +2,9 @@ class DirectMessagesController < ApplicationController
   def create
     if RoomKey.where(user_id: current_user.id, room_id: params[:direct_message][:room_id]).present?
       @direct_message = DirectMessage.create(direct_message_params)
+      room_id = @direct_message.room.id
       room_key = @direct_message.room.room_keys.where.not(user_id: current_user.id)
-      @direct_message.create_notificaton_direct_message!(current_user, room_key.first.user_id)
+      @direct_message.create_notificaton_direct_message!(current_user, room_key.first.user_id, room_id)
       redirect_to room_path(@direct_message.room_id)
     else
       flash[:alert] = "メッセージの送信に失敗しました。"

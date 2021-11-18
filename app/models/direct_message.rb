@@ -5,11 +5,12 @@ class DirectMessage < ApplicationRecord
 
   validates :message, presence: true
 
-  def create_notificaton_direct_message!(current_user, visited_id)
-    temp = Notification.where(visitor_id: current_user.id, visited_id: visited_id, action: "direct_message")
+  def create_notificaton_direct_message!(current_user, visited_id, room_id)
+    temp = Notification.where(visitor_id: current_user.id, visited_id: visited_id, room_id: room.id, action: "direct_message")
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: visited_id,
+        room_id: room_id,
         action: "direct_message",
       )
 
