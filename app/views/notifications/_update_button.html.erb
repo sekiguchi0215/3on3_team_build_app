@@ -1,0 +1,3 @@
+<% if notification.checked == false %>
+  <%= link_to "既読", notification_path(notification), method: :patch, class: "btn btn-sm" %>
+<% end %>

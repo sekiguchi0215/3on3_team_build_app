@@ -11,6 +11,7 @@
   さんが
   <%= link_to "あなたの投稿", recruitment_path(notification.recruitment_id) %>
   に応募しました。
+  <%= render "update_button", notification: notification %>
 </p>
 <% when "direct_message" %>
 <p>
@@ -21,10 +22,12 @@
   さんから
   <%= link_to "ダイレクトメッセージ", room_path(notification.room_id) %>
   が届きました。
+  <%= render "update_button", notification: notification %>
 </p>
 <% when "team_message" %>
 <p>
   <%= link_to "チーム", team_path(notification.team_id) %>
   にメッセージが投稿されました。
+  <%= render "update_button", notification: notification %>
 </p>
 <% end %>

@@ -1,1 +1,5 @@
-<%= render partial: "notification", collection: @active_notifications %>
+<% if @active_notifications.exists? %>
+  <%= render partial: "notification", collection: @active_notifications %>
+<% else %>
+  <p>通知はありません。</p>
+<% end %>
