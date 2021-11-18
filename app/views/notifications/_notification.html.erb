@@ -9,7 +9,8 @@
     <%= visitor.nickname %>
   <% end %>
   さんが
-  <%= link_to "あなたの投稿", recruitment_path(notification.recruitment_id) %>に応募しました。
+  <%= link_to "あなたの投稿", recruitment_path(notification.recruitment_id) %>
+  に応募しました。
 </p>
 <% when "direct_message" %>
 <p>
@@ -22,5 +23,8 @@
   が届きました。
 </p>
 <% when "team_message" %>
-<p></p>
+<p>
+  <%= link_to "チーム", team_path(notification.team_id) %>
+  にメッセージが投稿されました。
+</p>
 <% end %>
