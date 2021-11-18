@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :direct_messages, only: [:create, :update]
   resources :teams, only: [:new, :create, :index, :show, :edit, :update]
   resources :team_messages, only: [:create, :update]
+  resources :notifications, only: [:index]
 end
