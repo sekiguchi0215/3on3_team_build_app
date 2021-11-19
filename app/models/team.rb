@@ -5,7 +5,7 @@ class Team < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   def team_invitation_notification(current_user, visited_id, team_id)
-    temp = Notification.where(visitor_id: current_user.id, visited_id: visted_id, team_id: team_id)
+    temp = Notification.where(visitor_id: current_user.id, visited_id: visited_id, team_id: team_id)
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: visited_id,
