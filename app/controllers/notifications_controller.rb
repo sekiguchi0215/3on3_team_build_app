@@ -12,4 +12,10 @@ class NotificationsController < ApplicationController
     @notification.update(checked: true)
     redirect_to request.referer
   end
+
+  def update_all
+    @notifications = current_user.passive_notifications.where(checked: false)
+    @notifications.map { |notification| notification.update(checked: true) }
+    redirect_to request.referer, notice: "全て既読にしました。"
+  end
 end
