@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   end
   resources :rooms, only: [:index, :show, :create, :destroy]
   resources :direct_messages, only: [:create, :update]
-  resources :teams, only: [:new, :create, :index, :show, :edit, :update]
+  resources :teams, only: [:new, :create, :index, :show, :edit, :update] do
+    member do
+      get :join
+      post :invitation
+    end
+  end
   resources :team_messages, only: [:create, :update]
   resources :notifications, only: [:index, :update] do
     member do
