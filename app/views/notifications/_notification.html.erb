@@ -30,4 +30,9 @@
   にメッセージが投稿されました。
   <%= render "update_button", notification: notification %>
 </p>
+<% when "invitation" %>
+<p>
+  チームへ招待されました。
+  <%= link_to "参加する", join_team_path(notification.team_id) %>
+</p>
 <% end %>
