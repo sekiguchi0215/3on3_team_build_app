@@ -44,8 +44,12 @@ class TeamsController < ApplicationController
   def invitation
     @team = Team.find(params[:id])
     @user = User.find_by(id: params[:user_id])
-    if @team.team_invitation_notification(current_user, @user.id, @team.id)
+    notification = Notification.where(visited_id: @user.id, team_id: @team.id, action: "invitation")
+    unless notification.exists?
+      @team.team_invitation_notification(current_user, @user.id, @team.id)
       redirect_to request.referer, notice: "招待を送りました。"
+    else
+      redirect_to request.referer, alert: "すでに招待しています。"
     end
   end
 
