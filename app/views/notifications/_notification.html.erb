@@ -34,5 +34,6 @@
 <p>
   チームへ招待されました。
   <%= link_to "参加する", join_team_path(notification.team_id) %>
+  <%= link_to "削除", notification_path(notification), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "削除しますか？" } %>
 </p>
 <% end %>

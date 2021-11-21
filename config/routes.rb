@@ -18,9 +18,10 @@ Rails.application.routes.draw do
     end
   end
   resources :team_messages, only: [:create, :update]
-  resources :notifications, only: [:index, :update] do
+  resources :notifications, only: [:index, :update, :destroy] do
     member do
       patch :update_all
+      delete :destroy_all
     end
   end
 end
