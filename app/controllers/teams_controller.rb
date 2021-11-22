@@ -22,7 +22,7 @@ class TeamsController < ApplicationController
     if Member.where(user_id: current_user.id, team_id: @team.id).present?
       # 招待機能の記述
       member_ids = Member.where(team_id: @team.id).pluck(:user_id)
-      @other_users = User.where.not(id: member_ids)
+      @other_users = User.where.not(id: member_ids).order(:created_at)
       # チームメッセージの記述
       @members = @team.users.order(:created_at)
       @team_message = TeamMessage.new
@@ -57,6 +57,8 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     unless @team.users.include?(current_user)
       @team.users << current_user
+      notification = Notification.find_by(visited_id: current_user.id, team_id: @team.id, action: "invitation")
+      notification.destroy
     end
     redirect_to team_path(@team), notice: "チームに参加しました。"
   end
