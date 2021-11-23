@@ -1,0 +1,15 @@
+<div class="notification-top">
+  <%= link_to "通知", notifications_path %>
+  <%= link_to "全ての通知", notifications_path(which: "all") %>
+</div>
+<div class="notification-container">
+  <% if @notifications.exists? %>
+    <% unless params[:which] == "all" %>
+      <%= link_to "全て既読にする", update_all_notification_path(@notifications), method: :patch, data: { confirm: "全て既読にしますか？" }, class: "btn btn-sm btn-warning" %>
+    <% end %>
+    <%= link_to "全ての通知を削除する", destroy_all_notification_path(@notifications), method: :delete, data: { confirm: "全ての通知を削除しますか？" }, class: "btn btn-sm btn-danger" %>
+    <%= render partial: "notification", collection: @notifications %>
+  <% else %>
+    <p>通知はありません。</p>
+  <% end %>
+</div>

@@ -22,6 +22,7 @@ class RecruitmentsController < ApplicationController
   def show
     @recruitment = Recruitment.find(params[:id])
     @users = @recruitment.entry_users.order(:created_at)
+    @team = Team.new
   end
 
   def edit

@@ -5,6 +5,7 @@
   <div class="team-members-container" style="display: flex;">
     <%= render partial: "user_link", collection: @members %>
   </div>
+  <%= render "invitation" %>
   <hr>
   <div class="team-message-container">
     <% if @messages.exists? %>
