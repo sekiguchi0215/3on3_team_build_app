@@ -1,6 +1,6 @@
 <%= form_with model: @team, local: true do |f| %>
   <p>
-    <%= f.collection_check_boxes :user_ids, User.order(:created_at), :id, :nickname do |user| %>
+    <%= f.collection_check_boxes :user_ids, @user, :id, :nickname do |user| %>
       <table class="table">
         <tr>
           <th style="vertical-align: middle;"><%= user.check_box %></th>

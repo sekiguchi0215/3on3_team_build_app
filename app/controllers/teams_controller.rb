@@ -1,13 +1,15 @@
 class TeamsController < ApplicationController
   def new
     @team = Team.new
-    @team.users << current_user
+    @user = User.where.not(id: current_user.id).order(:created_at)
   end
 
   def create
-    @team = Team.new(team_params)
+    @team = Team.new
+    @team.users << current_user
     if @team.save
-      redirect_to team_path(@team), notice: "チームを作成しました。"
+      @team.team_invitation_notification(current_user, team_params[:user_ids], @team.id)
+      redirect_to team_path(@team), notice: "チームを作成し、招待を送りました。"
     else
       render :new
     end
@@ -46,7 +48,7 @@ class TeamsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     notification = Notification.where(visited_id: @user.id, team_id: @team.id, action: "invitation")
     unless notification.exists?
-      @team.team_invitation_notification(current_user, @user.id, @team.id)
+      @team.save_team_invitation_notification(current_user, @user.id, @team.id)
       redirect_to request.referer, notice: "招待を送りました。"
     else
       redirect_to request.referer, alert: "すでに招待しています。"
