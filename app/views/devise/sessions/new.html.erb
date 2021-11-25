@@ -20,4 +20,6 @@
     <%= f.submit  t('.sign_in'), class: 'btn btn-primary form-control' %>
   </div>
 <% end %>
+<hr style="margin: 1rem 0 1rem 0;">
 <%= render 'devise/shared/links' %>
+<%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, class: "btn btn-warning form-control" %>
