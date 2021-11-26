@@ -9,10 +9,10 @@
     <% end %>
     <%= link_to "全ての通知を削除する", destroy_all_notification_path(@notifications), method: :delete, data: { confirm: "全ての通知を削除しますか？" }, class: "btn btn-sm btn-danger" %>
     <%= render partial: "notification", collection: @notifications %>
+    <% if params[:which] == "all" %>
+      <%= paginate @notifications %>
+    <% end %>
   <% else %>
     <p>通知はありません。</p>
-  <% end %>
-  <% if params[:which] == "all" %>
-    <%= paginate @notifications %>
   <% end %>
 </div>

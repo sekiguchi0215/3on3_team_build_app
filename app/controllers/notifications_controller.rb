@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
     @notifications = if params[:which] == "all"
         current_user.passive_notifications.page(params[:page]).per(PER_PAGE).order(:updated_at)
       else
-        current_user.passive_notifications.where(checked: false).order(:updated_at)
+        current_user.passive_notifications.where(checked: false).limit(20).order(:updated_at)
       end
   end
 
