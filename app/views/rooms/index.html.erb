@@ -1,7 +1,10 @@
 <div class="room-index-container">
   <% if @rooms.exists? %>
-    <%= render partial: "room", collection: @rooms %>
+    <table class="table">
+      <%= render partial: "room", collection: @rooms %>
+    </table>
   <% else %>
     <%= link_to "ダイレクトメッセージをはじめましょう。", users_path %>
   <% end %>
 </div>
+<%= paginate @rooms %>

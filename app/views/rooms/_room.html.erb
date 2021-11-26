@@ -1,7 +1,12 @@
 <div class="room-container">
   <% anotherUserRoomKey = room.room_keys.where.not(user_id: current_user.id) %>
   <% anotherUser = User.find(anotherUserRoomKey.first[:user_id]) %>
-  <%= link_to room_path(room) do %>
-    <% image_tag anotherUser.icon.url, size: "100x100" %>
-  <% end %>
+  <tr>
+    <td>
+      <%= link_to room_path(room) do %>
+        <%= image_tag anotherUser.icon.url, size: "100x100" %>
+        <%= anotherUser.nickname  %>
+      <% end %>
+    </td>
+  </tr>
 </div>
