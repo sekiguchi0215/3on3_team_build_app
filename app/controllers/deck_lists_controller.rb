@@ -1,8 +1,9 @@
 class DeckListsController < ApplicationController
   before_action :set_deck, only: %i[edit update destroy]
+  PER_PAGE = 8
 
   def index
-    @decks = current_user.deck_lists.order(:updated_at)
+    @decks = current_user.deck_lists.page(params[:page]).per(PER_PAGE).order(:updated_at)
   end
 
   def show
