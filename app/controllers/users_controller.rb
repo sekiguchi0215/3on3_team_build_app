@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  PER_PAGE = 20
+
   def index
-    @users = User.order(:created_at)
+    @users = User.page(params[:page]).per(PER_PAGE).order(:updated_at)
   end
 
   def show
