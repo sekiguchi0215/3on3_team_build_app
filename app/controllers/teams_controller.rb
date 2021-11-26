@@ -23,8 +23,9 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     if Member.where(user_id: current_user.id, team_id: @team.id).present?
       # 招待機能の記述
-      member_ids = Member.where(team_id: @team.id).pluck(:user_id)
-      @other_users = User.where.not(id: member_ids).order(:created_at)
+      member_ids = @team.users.pluck(:user_id)
+      visited_ids = @team.notifications.where(action: "invitation").pluck(:visited_id)
+      @other_users = User.where.not(id: member_ids).where.not(id: visited_ids).order(:created_at)
       # チームメッセージの記述
       @members = @team.users.order(:created_at)
       @team_message = TeamMessage.new
