@@ -1,5 +1,6 @@
 class RecruitmentsController < ApplicationController
   before_action :set_recruitment, only: %i[edit update destroy]
+  PER_PAGE = 16
 
   def new
     @recruitment = Recruitment.new
@@ -16,7 +17,7 @@ class RecruitmentsController < ApplicationController
   end
 
   def index
-    @recruitments = Recruitment.includes(:user, :entries).order(:updated_at)
+    @recruitments = Recruitment.includes(:user, :entries).page(params[:page]).per(PER_PAGE).order(:updated_at)
   end
 
   def show
