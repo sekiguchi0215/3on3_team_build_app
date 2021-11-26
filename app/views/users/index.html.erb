@@ -1,2 +1,7 @@
 <h1>アカウント</h1>
-<%= render @users %>
+<div class="user-cotainer">
+  <table class="table">
+    <%= render @users %>
+  </table>
+</div>
+<%= paginate @users %>

@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
+  PER_PAGE = 10
+
   def index
-    @rooms = current_user.rooms.order(:created_at)
+    @rooms = current_user.rooms.page(params[:page]).per(PER_PAGE).order(:created_at)
   end
 
   def show

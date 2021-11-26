@@ -1,12 +1,13 @@
 <% users = team.users %>
 <div class="team-cell">
   <%= link_to team_path(team) do %>
-    <table class="table">
-      <tr>
-        <td style="display: flex;">
-          <%= render partial: "user", collection: users %>
-        </td>
-      </tr>
-    </table>
+    <tr>
+      <td style="display: flex;">
+        <%= render partial: "user", collection: users %>
+      </td>
+      <td style="color: grey; vertical-align: middle;">
+        <%= team.show_last_team_message %>
+      </td>
+    </tr>
   <% end %>
 </div>

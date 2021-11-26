@@ -5,3 +5,4 @@
 <% else %>
   <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-primary" %>
 <% end %>
+<%= paginate @decks %>

@@ -1,15 +1,11 @@
-<div class="user-content">
-  <table class="table">
-    <tr>
-      <td>
-        <%= link_to user_path(user) do %>
-          <%= image_tag user.icon.url, :size => "100x100" %>
-          <%= user.nickname %>
-        <% end %>
-      </td>
-      <td style="vertical-align: middle;">
-        <%= simple_format (h user.introduction) %>
-      </td>
-    </tr>
-  </table>
-</div>
+<tr>
+  <td>
+    <%= link_to user_path(user) do %>
+      <%= image_tag user.icon.url, :size => "100x100" %>
+      <%= user.nickname %>
+    <% end %>
+  </td>
+  <td style="vertical-align: middle;">
+    <%= simple_format (h user.introduction) %>
+  </td>
+</tr>
