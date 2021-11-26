@@ -10,6 +10,9 @@ class User < ApplicationRecord
     end
   end
 
+  validates :email, uniqueness: true
+  validates :nickname, uniqueness: true
+
   mount_uploader :icon, ImageUploader
 
   # デッキ登録機能
