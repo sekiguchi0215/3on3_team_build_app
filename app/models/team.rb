@@ -22,4 +22,12 @@ class Team < ApplicationRecord
       save_team_invitation_notification(current_user, visited_id, team_id)
     end
   end
+
+  def show_last_team_message
+    if (last_message = team_messages.last).present?
+      last_message.message
+    else
+      "まだメッセージはありません。"
+    end
+  end
 end
