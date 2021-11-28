@@ -11,7 +11,11 @@
   </div>
   <hr>
   <% if @decks.exists? %>
-    <%= render partial: "deck", collection: @decks %>
+    <div class="container">
+      <div class="row row-cols-3">
+        <%= render partial: "deck", collection: @decks %>
+      </div>
+    </div>
   <% else %>
     <p>公開中のデッキはありません。</p>
   <% end %>
