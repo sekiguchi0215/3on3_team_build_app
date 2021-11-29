@@ -29,7 +29,7 @@ class DeckListsController < ApplicationController
 
   def update
     if @deck.update(deck_list_params)
-      redirect_to user_path(current_user.id), notice: "更新しました。"
+      redirect_to user_path(current_user.id), notice: "デッキリストの情報を更新しました。"
     else
       flash.now[:alert] = "更新に失敗しました。"
       render :edit
