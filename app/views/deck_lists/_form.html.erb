@@ -1,19 +1,24 @@
 <%= render "layouts/error_messages", model: @deck %>
 <%= form_with model: @deck, loacle: true do |f| %>
-  <p>
-    <%= f.label :deck_list %>
-    <%= f.file_field :deck_list, accept: "deck_image/png, deck_image/jpg, deck_image/jpeg, deck_image/gif" %>
-  </p>
-  <p>
-    <%= f.label :content %>
-  </p>
-  <p>
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.collection_radio_buttons :status, DeckList.statuses_i18n, :first, :last %>
-  </p>
-  <p>
-    <%= f.submit "登録", class: "btn btn-primary" %>
-  </p>
+  <div class="deck-list-form margin">
+    <%= f.label :deck_list, class: "form-label" %>
+    <%= f.file_field :deck_list, accept: "deck_image/png, deck_image/jpg, deck_image/jpeg, deck_image/gif", class: "form-control" %>
+  </div>
+  <div class="free-content margin">
+    <div class="free-content-label">
+      <%= f.label :content %>
+    </div>
+    <div class="free-space">
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+  </div>
+  <div class="deck-status-button margin text-center">
+    <%= f.radio_button :status, :public %>
+    <%= f.label :status, "公開", class: "button-label" %>
+    <%= f.radio_button :status, :private, class: "radio-button" %>
+    <%= f.label :status, "非公開", class: "button-label" %>
+  </div>
+  <div class="submit text-center margin">
+    <%= f.submit "登録", class: "btn btn-primary button" %>
+  </div>
 <% end %>

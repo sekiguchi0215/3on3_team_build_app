@@ -4,7 +4,7 @@
     <div class="deck-list-image">
       <%= image_tag @deck.deck_list.url, :style => "max-height: 450px; max-width: 800px;" %>
     </div>
-    <div class="free-content edit-margin">
+    <div class="free-content margin">
       <div class="free-content-label">
         <%= f.label :content %>
       </div>
@@ -12,14 +12,14 @@
         <%= f.text_area :content, class: "form-control" %>
       </div>
     </div>
-    <div class="deck-status-button edit-margin">
+    <div class="deck-status-button margin">
       <%= f.radio_button :status, :public %>
       <%= f.label :status, "公開", class: "button-label" %>
       <%= f.radio_button :status, :private, class: "radio-button" %>
       <%= f.label :status, "非公開", class: "button-label" %>
     </div>
     <div class=submit>
-      <%= f.submit "更新", class: "btn btn-success edit-button edit-margin" %>
+      <%= f.submit "更新", class: "btn btn-success button margin" %>
     </div>
   <% end %>
 </div>

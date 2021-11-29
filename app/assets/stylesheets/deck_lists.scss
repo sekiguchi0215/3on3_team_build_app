@@ -2,13 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// 共通スタイル
+
+.margin {
+  margin: 1.5rem 1rem 0 1rem;
+}
+
+.radio-button {
+  margin-left: 1rem;
+}
+
+.button-label {
+  font-size: 1.1rem;
+}
+
+.button {
+  width: 50%;
+}
+
 // 詳細表示ページ
 
 .deck-status {
   margin: 1.5rem;
 }
 
-.button {
+.buttons {
   width: 25%;
   margin-bottom: 1rem;
 }
@@ -23,24 +41,8 @@
 
 // 編集ページ
 
-.edit-margin {
-  margin: 1.5rem 1rem 0 1rem;
-}
-
 .free-content-label {
   text-align: left;
-}
-
-.radio-button {
-  margin-left: 1rem;
-}
-
-.button-label {
-  font-size: 1.1rem;
-}
-
-.edit-button {
-  width: 50%;
 }
 
 .text-area-height {
