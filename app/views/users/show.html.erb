@@ -6,21 +6,35 @@
   <div class="user-show-introduction">
     <%= simple_format (h @user.introduction) %>
   </div>
-  <div>
-    <%= link_to "デッキリスト", deck_lists_path %>
-  </div>
-  <hr>
-  <% if @decks.exists? %>
-    <div class="container">
-      <div class="row row-cols-3">
-        <%= render partial: "deck", collection: @decks %>
-      </div>
-    </div>
-  <% else %>
-    <p>公開中のデッキはありません。</p>
-  <% end %>
-  <hr>
   <div class="user-show-cell">
+    <%= render "room" %>
+  </div>
+</div>
+<hr>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-deck-tab" data-toggle="pill" href="#pills-deck" role="tab" aria-controls="pills-deck" aria-selected="true">デッキリスト</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">応募一覧</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active margin" id="pills-deck" role="tabpanel" aria-labelledby="pills-deck-tab">
+    <% if @decks.exists? %>
+      <div class="container">
+        <div class="row row-cols-3">
+          <%= render partial: "deck", collection: @decks %>
+        </div>
+      </div>
+    <% else %>
+      <p>公開中のデッキはありません。</p>
+    <% end %>
+  </div>
+  <div class="tab-pane fade margin" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     <% if @user == current_user %>
       <% if @entries.exists? %>
         <%= render partial: "recruitments/recruitment", collection: @entries %>
@@ -29,18 +43,5 @@
       <% end %>
     <% end %>
   </div>
-  <div class="user-show-cell">
-    <% unless @user == current_user %>
-      <% if @haveRoom == true %>
-        <%= link_to "メッセージを送る", room_path(@roomId) %>
-      <% else %>
-        <%= form_with model: @room, local: true do |f| %>
-          <%= fields_for @userRoomKey do |r| %>
-            <%= r.hidden_field :user_id, value: @user.id %>
-          <% end %>
-          <%= f.submit "ダイレクトメッセージを開始する" %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
+  <div class="tab-pane fade margin" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
 </div>
