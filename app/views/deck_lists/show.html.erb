@@ -10,8 +10,8 @@
   </div>
   <div class="buttons">
     <% if @deck.user_id == current_user.id %>
-      <%= link_to "編集", edit_deck_list_path(@deck), class: "btn btn-success buttons" %>
-      <%= link_to "削除", deck_list_path, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger buttons" %>
+      <%= link_to "編集", edit_deck_list_path(@deck), class: "btn btn-success post-button" %>
+      <%= link_to "削除", deck_list_path, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger post-button" %>
     <% end %>
   </div>
 </div>
