@@ -1,10 +1,11 @@
-<div class="room-index-container">
+<div class="room-index-container margin">
   <% if @rooms.exists? %>
-    <table class="table">
+    <table class="table table-borderless">
       <%= render partial: "room", collection: @rooms %>
     </table>
   <% else %>
-    <%= link_to "ダイレクトメッセージをはじめましょう。", users_path %>
-  <% end %>
-</div>
-<%= paginate @rooms %>
+    <div class="button text-center">
+      <%= link_to "ダイレクトメッセージをはじめる", users_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <%= paginate @rooms %>
