@@ -1,49 +1,61 @@
-<div class="recruit-show-container">
-  <div class="recruit-show-user">
-    <%= link_to user_path(@recruitment.user) do %>
-      <%= image_tag @recruitment.user.icon.url, size: "150x150" %>
-      <%= @recruitment.user.nickname %>
-    <% end %>
-  </div>
-  <div class="recruit-show-cell">
-    <strong>イベント名</strong>
-    <%= @recruitment.event_title %>
-  </div>
-  <div class="recruit-show-cell">
-    <strong>募集人数</strong>
-    <%= @recruitment.number_of_applicants_i18n %>
-  </div>
-  <div class="recruit-show-cell">
-    <strong>募集要項</strong>
-    <%= @recruitment.recruitment_condition_i18n %>
-  </div>
-  <div class="recruit-show-cell">
-    <strong><span>募集詳細</span></strong>
-    <%= simple_format (h @recruitment.introduction) %>
-  </div>
-  <div id="recruitment-<%= @recruitment.id %>"  class="recruit-show-cell">
-    <% if @recruitment.user == current_user %>
-      <p>応募人数：<%= @recruitment.entries_count %></p>
-    <% else %>
-      <% if @recruitment.entried_by?(current_user) %>
-        <%= render "entries/unentry", recruitment: @recruitment %>
-      <% else %>
-        <%= render "entries/entry", recruitment: @recruitment %>
+<table class="table text-center">
+  <tr>
+    <th width="50%">
+      <%= link_to user_path(@recruitment.user) do %>
+        <%= image_tag @recruitment.user.icon.url, size: "150x150" %>
+        <%= @recruitment.user.nickname %>
       <% end %>
-    <% end %>
-  </div>
-  <% if @recruitment.user == current_user %>
-    <div class="edit-and-delete">
-      <%= link_to "編集", edit_recruitment_path(@recruitment) %>
-      <%= link_to "削除", recruitment_path(@recruitment), method: :delete, data: { confirm: "削除しますか？"} %>
-    </div>
+    </th>
+    <th width="50%" class="align-middle">
+      <div id="recruitment-<%= @recruitment.id %>"  class="recruit-show-cell">
+        <% if @recruitment.user == current_user %>
+          <p>応募人数：<%= @recruitment.entries_count %></p>
+        <% else %>
+          <% if @recruitment.entried_by?(current_user) %>
+            <%= render "entries/unentry", recruitment: @recruitment %>
+          <% else %>
+            <%= render "entries/entry", recruitment: @recruitment %>
+          <% end %>
+        <% end %>
+      </div>
+    </th>
+  </tr>
+</table>
+<% if @recruitment.user == current_user %>
+  <div class="recruitment-buttons text-center margin">
     <hr>
-    <div class="entry-users">
-      <% if @users.exists? %>
-        <%= render "team_form" %>
-      <% else %>
-        <p>まだ応募がありません。</p>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+    <%= link_to "編集", edit_recruitment_path(@recruitment), class: "btn btn-success" %>
+    <%= link_to "削除", recruitment_path(@recruitment), method: :delete, data: { confirm: "削除しますか？"}, class: "btn btn-danger" %>
+  </div>
+<% end %>
+<table class="table">
+  <tr class="text-center">
+    <th width="30%">イベント名</th>
+    <td width="70%"><%= @recruitment.event_title %></td>
+  </tr>
+  <tr class="text-center">
+    <th>募集人数</th>
+    <td><%= @recruitment.number_of_applicants_i18n %></td>
+  </tr>
+  <tr class="text-center">
+    <th>募集要項</th>
+    <td><%= @recruitment.recruitment_condition_i18n %></td>
+  </tr>
+  <tr>
+    <th class="text-center">募集詳細</th>
+    <td><%= simple_format (h @recruitment.introduction) %></td>
+  </tr>
+</table>
+<hr>
+<% if @recruitment.user == current_user %>
+  <div class="entry-users">
+    <h5 class="container-title text-center margin">
+      応募したユーザー
+    </h5>
+    <% if @users.exists? %>
+      <%= render "team_form" %>
+    <% else %>
+      <p>まだ応募がありません。</p>
+    <% end %>
+  </div>
+<% end %>
