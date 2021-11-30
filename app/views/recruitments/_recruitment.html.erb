@@ -1,32 +1,38 @@
-<div class="recruit-index-container">
-  <%= link_to recruitment_path(recruitment) do %>
-    <div class="recruit-index-cell">
-      <strong>イベント名</strong>
-      <%= recruitment.event_title %>
-    </div>
-    <div class="recruit-index-cell">
-      <strong>募集人数</strong>
-      <%= recruitment.number_of_applicants_i18n %>
-    </div>
-    <div class="recruit-index-cell">
-      <%= recruitment.recruitment_condition_i18n %>
-    </div>
-  <% end %>
-  <div id="recruitment-<%= recruitment.id %>" class="recruit-index-cell">
-    <% if recruitment.user == current_user %>
-      <p>応募人数：<%= recruitment.entries_count %></p>
-    <% else %>
-      <% if recruitment.entried_by?(current_user) %>
-        <%= render "entries/unentry", recruitment: recruitment %>
-      <% else %>
-        <%= render "entries/entry", recruitment: recruitment %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="recruit-user-cell">
-    <%= link_to user_path(recruitment.user.id) do %>
-      <%= image_tag recruitment.user.icon.url, size: "50x50" %>
-      <%= recruitment.user.nickname %>
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="card text-center">
+    <%= link_to recruitment_path(recruitment) do %>
+      <div class="card-header">
+        <strong>イベント名</strong><br>
+        <%= recruitment.event_title %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>募集人数</strong>
+          <%= recruitment.number_of_applicants_i18n %>
+        </li>
+        <li class="list-group-item">
+          <strong>
+            <%= recruitment.recruitment_condition_i18n %>
+          </strong>
+        </li>
+        <li id="recruitment-<%= recruitment.id %>" class="list-group-item entry-button">
+          <% if recruitment.user == current_user %>
+            <p>応募人数：<%= recruitment.entries_count %></p>
+          <% else %>
+            <% if recruitment.entried_by?(current_user) %>
+              <%= render "entries/unentry", recruitment: recruitment %>
+            <% else %>
+              <%= render "entries/entry", recruitment: recruitment %>
+            <% end %>
+          <% end %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to user_path(recruitment.user.id) do %>
+            <%= image_tag recruitment.user.icon.url, size: "50x50" %>
+            <%= recruitment.user.nickname %>
+          <% end %>
+        </li>
+      </ul>
     <% end %>
   </div>
 </div>
