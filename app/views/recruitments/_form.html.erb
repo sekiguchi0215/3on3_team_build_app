@@ -1,30 +1,48 @@
 <%= render "layouts/error_messages", model: @recruitment %>
 <%= form_with model: @recruitment, locale: true do |f| %>
-  <div class="recruitment-cell">
-    <p>
-      <strong><%= f.label :event_title %></strong>
-      <%= f.text_field :event_title, required: true %>
-    </p>
+  <div class="new-recruitment text-center">
+    <div class="form-cell margin">
+      <h5 class="recruitment-label">
+        <%= f.label :event_title, class: "form-label" %>
+      </h5>
+      <div class="recruitment-form">
+        <%= f.text_field :event_title, required: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-cell margin">
+      <h5 class="recruitment-label">
+        <%= f.label :number_of_applicants, class: "form-label" %>
+      </h5>
+      <div>
+        <%= f.radio_button :number_of_applicants, :one, checked: true %>
+        <%= f.label :number_of_applicants, "1人" %>
+        <%= f.radio_button :number_of_applicants, :two, class: "radio-button" %>
+        <%= f.label :number_of_applicants, "2人" %>
+      </div>
+    </div>
+    <div class="form-cell margin">
+      <h5 class="recruitment-label">
+        <%= f.label :recruitment_condition %>
+      </h5>
+      <div>
+        <%= f.radio_button :recruitment_condition, :anyone, checked: true %>
+        <%= f.label :recruitment_condition, "誰でも" %>
+        <%= f.radio_button :recruitment_condition, :enjoy, class: "radio-button" %>
+        <%= f.label :recruitment_condition, "初心者歓迎" %>
+        <%= f.radio_button :recruitment_condition, :seriousness, class: "radio-button" %>
+        <%= f.label :recruitment_condition, "結果重視" %>
+      </div>
+    </div>
+    <div class="form-cell margin">
+      <h5 class="recruitment-label">
+        <%= f.label :introduction, class: "form-label" %>
+      </h5>
+      <div>
+        <%= f.text_area :introduction, class: "form-control" %>
+      </div>
+    </div>
+    <div class="submit">
+      <%= f.submit "投稿する", class: "btn btn-info post-button" %>
+    </div>
   </div>
-  <div class="recruitment-cell">
-    <p>
-      <strong><%= f.label :number_of_applicants %></strong>
-      <br>
-      <%= f.collection_radio_buttons :number_of_applicants, Recruitment.number_of_applicants_i18n, :first, :last %>
-    </p>
-  </div>
-  <div class="recruitment-cell">
-    <p>
-      <strong><%= f.label :recruitment_condition %></strong>
-      <br>
-      <%= f.collection_radio_buttons :recruitment_condition, Recruitment.recruitment_conditions_i18n, :first, :last %>
-    </p>
-  </div>
-  <div class="recruitment-cell">
-    <p>
-      <strong><%= f.label :introduction %></strong>
-      <%= f.text_area :introduction %>
-    </p>
-  </div>
-  <%= f.submit "投稿する" %>
 <% end %>
