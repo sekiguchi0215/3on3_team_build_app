@@ -42,7 +42,11 @@
       </div>
     </div>
     <div class="submit">
-      <%= f.submit "投稿する", class: "btn btn-info post-button" %>
+      <% if controller.action_name == "edit" %>
+        <%= f.submit "更新する", class: "btn btn-success post-button" %>
+      <% else %>
+        <%= f.submit "投稿する", class: "btn btn-info post-button" %>
+      <% end %>
     </div>
   </div>
 <% end %>

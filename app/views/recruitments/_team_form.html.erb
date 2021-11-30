@@ -1,16 +1,14 @@
 <%= form_with model: @team, url: teams_path do |f| %>
-  <p>
-    <%= f.collection_check_boxes :user_ids, @users, :id, :nickname do |user| %>
-      <table class="table">
-        <tr>
-          <th class="align-middle"><%= user.check_box %></th>
-          <th class="align-middle"><%= image_tag user.object.icon.url, size: "50x50" %></th>
-          <th class="align-middle"><%= user.object.nickname %></th>
-        </tr>
-      </table>
-    <% end %>
-  </p>
-  <p class="text-center margin">
+  <%= f.collection_check_boxes :user_ids, @users, :id, :nickname do |user| %>
+    <table class="table margin text-center">
+      <tr>
+        <td width="15%" class="align-middle"><%= user.check_box %></td>
+        <td width="30%" class="align-middle"><%= image_tag user.object.icon.url, size: "50x50" %></td>
+        <td width="55%" class="align-middle"><%= user.object.nickname %></td>
+      </tr>
+    </table>
+  <% end %>
+  <div class="text-center margin">
     <%= f.submit "チームを作成して招待を送る", class: "btn btn-success" %>
-  </p>
+  </div>
 <% end %>
