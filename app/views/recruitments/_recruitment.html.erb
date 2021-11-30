@@ -1,11 +1,11 @@
 <div class="col-12 col-md-6 col-lg-4">
   <div class="card text-center">
     <%= link_to recruitment_path(recruitment) do %>
-      <div class="card-header">
-        <strong>イベント名</strong><br>
-        <%= recruitment.event_title %>
-      </div>
       <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>イベント名</strong><br>
+          <%= recruitment.event_title %>
+        </li>
         <li class="list-group-item">
           <strong>募集人数</strong>
           <%= recruitment.number_of_applicants_i18n %>
