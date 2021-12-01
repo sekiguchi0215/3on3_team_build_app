@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
       # 相手ユーザーを取得するための記述
       anotherUserRoomKey = @room.room_keys.where.not(user_id: current_user.id)
       @anotherUser = User.find(anotherUserRoomKey.first[:user_id])
-      @direct_messages = @room.direct_messages
+      @direct_messages = @room.direct_messages.where(is_valid: true)
       @direct_message = DirectMessage.create
       @keys = @room.room_keys
     else
