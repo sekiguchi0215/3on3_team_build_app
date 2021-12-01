@@ -1,11 +1,11 @@
 <tr>
-  <td>
+  <td width="40%" class="text-center">
     <%= link_to user_path(user) do %>
       <%= image_tag user.icon.url, :size => "100x100" %>
       <%= user.nickname %>
     <% end %>
   </td>
-  <td style="vertical-align: middle;">
+  <td width="60%" class="align-middle">
     <%= simple_format (h user.introduction) %>
   </td>
 </tr>
