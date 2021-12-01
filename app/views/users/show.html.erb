@@ -1,7 +1,13 @@
 <div class="user-show-content">
-  <div class="user-show-icon">
-    <%= image_tag @user.icon.url, :size => "300x300" %>
-    <%= @user.nickname %>
+  <div class="user-icon text-center user-margin">
+    <div class="user-image">
+      <%= image_tag @user.icon.url, :size => "150x150" %>
+    </div>
+    <div class="user-name">
+      <h5>
+        <%= @user.nickname %>
+      </h5>
+    </div>
   </div>
   <div class="user-introduction">
     <%= simple_format (h @user.introduction) %>

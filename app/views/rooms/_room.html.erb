@@ -4,8 +4,14 @@
   <tr class="text-center">
     <td width="30%">
       <%= link_to room_path(room) do %>
-        <%= image_tag anotherUser.icon.url, size: "100x100" %>
-        <%= anotherUser.nickname  %>
+        <div class="user-icon">
+          <div class="user-image">
+            <%= image_tag anotherUser.icon.url, size: "100x100", class: "img-fluid img-circle" %>
+          </div>
+          <div class="user-name">
+            <%= anotherUser.nickname %>
+          </div>
+        </div>
       <% end %>
     </td>
     <td width="70%" class="last-message align-middle">

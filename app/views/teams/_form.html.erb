@@ -1,14 +1,24 @@
 <%= form_with model: @team, local: true do |f| %>
   <%= f.collection_check_boxes :user_ids, @user, :id, :nickname do |user| %>
-    <table class="table margin">
+    <table class="table margin text-center">
       <tr>
-        <td width="15%" class="align-middle text-center"><%= user.check_box %></td>
-        <td width="30%" class="align-middle text-center"><%= image_tag user.object.icon.url, size: "50x50" %></td>
-        <td width="55%" class="align-middle"><%= user.object.nickname %></td>
+        <td width="40%" class="align-middle"><%= user.check_box %></td>
+        <td width="60%" class="align-middle">
+          <%= link_to user_path(user.object) do %>
+            <div class="user-icon">
+              <div class="user-image">
+                <%= image_tag user.object.icon.url, size: "50x50" %>
+              </div>
+              <div class="user-name">
+                <%= user.object.nickname %>
+              </div>
+            </div>
+          <% end %>
+        </td>
       </tr>
     </table>
   <% end %>
   <div class="text-center margin">
-    <%= f.submit "チームを作成する", class: "btn btn-success post-button" %>
+    <%= f.submit "チームを作成する", class: "btn btn-success post-button form-control" %>
   </div>
 <% end %>

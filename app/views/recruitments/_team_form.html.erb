@@ -2,9 +2,22 @@
   <%= f.collection_check_boxes :user_ids, @users, :id, :nickname do |user| %>
     <table class="table margin text-center">
       <tr>
-        <td width="15%" class="align-middle"><%= user.check_box %></td>
-        <td width="30%" class="align-middle"><%= image_tag user.object.icon.url, size: "50x50" %></td>
-        <td width="55%" class="align-middle"><%= user.object.nickname %></td>
+        <td width="15%" class="align-middle">
+          <%= user.check_box %>
+        </td>
+        <td>
+          <%= link_to user_path(user.object) do %>
+            <div width="30%" class="user-image">
+              <%= image_tag user.object.icon.url, size: "50x50", class: "img-fluid img-circle" %>
+            </div>
+            <div class="user-name">
+              <%= user.object.nickname %>
+            </div>
+          <% end %>
+        </td>
+        <td width="55%" class="align-middle">
+          <%= user.object.introduction %>
+        </td>
       </tr>
     </table>
   <% end %>
