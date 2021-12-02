@@ -1,5 +1,5 @@
 <%= form_with model: @direct_message, local: true do |f| %>
   <%= f.text_field :message, placeholder: "メッセージを入力", required: true, class: "form-control" %>
   <%= f.hidden_field :room_id, value: @room.id %>
-  <%= f.submit "送信", class: "btn btn-success form-control" %>
+  <%= f.submit "送信", class: "btn btn-success form-control room-submit" %>
 <% end %>

@@ -1,13 +1,14 @@
 <div class="room-container">
-  <div class="room-top">
-    <span><%= @anotherUser.nickname %> さん</span>
+  <div class="room-top text-center">
+    <%= image_tag @anotherUser.icon.url, size: "100x100", class: "img-fluid img-circle" %>
+    <%= @anotherUser.nickname %> さん
   </div>
   <hr>
   <div class="direct-message-container">
     <% if @direct_messages.exists? %>
       <%= render partial: "direct_message", collection: @direct_messages %>
     <% else %>
-      <div>まだメッセージはありません。</div>
+      <div class="text-center">まだメッセージはありません。</div>
     <% end %>
   </div>
   <hr>
