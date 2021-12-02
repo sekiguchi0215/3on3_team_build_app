@@ -48,3 +48,15 @@
 .message {
   width: 100%;
 }
+
+// ダイレクトメッセージ機能、チームメッセージ機能
+.message-submit {
+  margin-top: 0.5rem;
+}
+
+.current-user-message {
+  margin: 0.5rem 0rem 0.5rem 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
