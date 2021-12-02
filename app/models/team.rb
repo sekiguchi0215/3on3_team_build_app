@@ -27,7 +27,7 @@ class Team < ApplicationRecord
     if (last_message = team_messages.last).present?
       last_message.message
     else
-      "まだメッセージはありません。"
+      "まだメッセージはありません"
     end
   end
 end
