@@ -9,4 +9,10 @@ class Room < ApplicationRecord
       "まだメッセージはありません。"
     end
   end
+
+  def show_last_direct_message_user_nickname
+    if (last_message = direct_messages.last).present?
+      last_message.user.nickname
+    end
+  end
 end

@@ -1,6 +1,6 @@
 <% if direct_message.user == current_user %>
   <div class="current-user-message">
-    <p class="direct-message background">
+    <p class="direct-message direct-message-background-color ">
       <%= direct_message.message %>
     </p>
     <%# link_to "削除", direct_message_path(direct_message), method: :patch, data: { confirm: "削除しますか？" }, class: "btn btn-sm btn-danger" %>
