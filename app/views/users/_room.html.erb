@@ -6,7 +6,7 @@
       <%= fields_for @userRoomKey do |r| %>
         <%= r.hidden_field :user_id, value: @user.id %>
       <% end %>
-      <%= f.submit "ダイレクトメッセージを開始する", class: "btn btn-info form-control" %>
+      <%= f.submit "ダイレクトメッセージを開始する", class: "btn btn-outline-success form-control" %>
     <% end %>
   <% end %>
 <% end %>

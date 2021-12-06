@@ -61,6 +61,7 @@
       <% end %>
     <% end %>
   </div>
+  <%# 募集 %>
   <div class="tab-pane fade margin" id="pills-recruitment" role="tabpanel" aria-labelledby="pills-recruitment-tab">
     <% if @recruitments.exists? %>
       <div class="row row-cols-3">
@@ -104,7 +105,7 @@
     <%# チーム %>
     <div class="tab-pane fade margin" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
       <% if @teams.exists? %>
-        <table class="table">
+        <table class="table table-borderless">
           <%= render partial: "team", collection: @teams %>
         </table>
       <% else %>

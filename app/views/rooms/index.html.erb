@@ -4,6 +4,7 @@
     <table class="table">
       <%= render partial: "room", collection: @rooms %>
     </table>
+    <hr>
   <% else %>
     <div class="button text-center">
       <%= link_to "ダイレクトメッセージをはじめる", users_path, class: "btn btn-primary" %>
