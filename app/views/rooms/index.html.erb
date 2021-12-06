@@ -1,7 +1,7 @@
 <div class="room-index-container margin">
-  <h3 class="text-center">メッセージ</h3>
+  <h3 class="text-center page-title">メッセージ</h3>
   <% if @rooms.exists? %>
-    <table class="table table-borderless">
+    <table class="table">
       <%= render partial: "room", collection: @rooms %>
     </table>
   <% else %>
