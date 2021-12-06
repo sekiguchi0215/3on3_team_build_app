@@ -44,3 +44,33 @@
 .mw-xl {
   max-width: 1200px;
 }
+
+.message {
+  width: 100%;
+}
+
+// 一覧表示のユーザー名のCSS
+.index-user-nickname {
+  font-size: 0.9rem;
+}
+
+// 各一覧ページのタイトルに対するCSS
+.page-title {
+  margin: 1.5rem 0;
+}
+
+// ダイレクトメッセージ機能、チームメッセージ機能
+.message-submit {
+  margin-top: 0.5rem;
+}
+
+.current-user-message {
+  margin: 0.5rem 0rem 0.5rem 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.last-message {
+  color: grey;
+}

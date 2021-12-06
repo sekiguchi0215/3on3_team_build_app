@@ -2,16 +2,18 @@
   <div class="team-header">
     <%= @team.name %>
   </div>
-  <div class="team-members-container" style="display: flex;">
+  <div class="team-members-container">
     <%= render partial: "user_link", collection: @members %>
   </div>
-  <%= render "invitation" %>
+  <div class="invitation text-center">
+    <%= render "invitation" %>
+  </div>
   <hr>
   <div class="team-message-container">
     <% if @messages.exists? %>
       <%= render partial: "message", collection: @messages %>
     <% else %>
-      <p>まだメッセージはありません。</p>
+      <p class="text-center">まだメッセージはありません。</p>
     <% end %>
   </div>
   <hr>

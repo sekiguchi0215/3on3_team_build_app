@@ -13,6 +13,8 @@ class UsersController < ApplicationController
       @decks = @user.deck_lists.includes(:user).where(status: "public")
     end
     @entries = @user.entried_recruitment
+    @recruitments = @user.recruitments.order(:updated_at)
+    @teams = @user.teams.order(:updated_at)
 
     # ダイレクトメッセージ機能の処理
     @currentUserRoomKey = RoomKey.where(user_id: current_user.id)
@@ -32,5 +34,7 @@ class UsersController < ApplicationController
         @room_key = RoomKey.new
       end
     end
+
+    @rooms = current_user.rooms.order(:updated_at)
   end
 end

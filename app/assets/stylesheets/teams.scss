@@ -1,3 +1,53 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 詳細ページ
+
+// 参加中のユーザー
+.linked-team-member {
+  margin-right: 1rem;
+}
+
+.team-members-container {
+  display: flex;
+  justify-content: center;
+}
+
+// 招待機能
+.invitation {
+  margin: 2rem 0;
+}
+
+// チームメッセージ
+.team-message {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.team-message-container {
+  margin: 0.5rem 0;
+}
+
+.team-message-background {
+  margin-right: 4rem;
+  background-color: #98fb98;
+}
+
+.team-users-container {
+  margin-left: 4rem;
+}
+
+.team-users-message {
+  display: flex;
+}
+
+.team-user-message {
+  margin: 2rem 0 2rem 1rem;
+}
+
+.team-user-name {
+  font-size: 0.9rem;
+}

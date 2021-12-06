@@ -1,6 +1,10 @@
-<div class="linked-team-member">
+<div class="linked-team-member text-center">
   <%= link_to user_path(user_link) do %>
-    <%= image_tag user_link.icon.url, :size => "50x50" %>
-    <%= user_link.nickname %>
+    <div class="user-icon">
+      <%= image_tag user_link.icon.url, :size => "50x50", class: "img-circle img-fluid" %>
+    </div>
+    <div class="user-name">
+      <%= user_link.nickname %>
+    </div>
   <% end %>
 </div>

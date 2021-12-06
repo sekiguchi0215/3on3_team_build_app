@@ -2,43 +2,73 @@
 <% visited = notification.visited %>
 <% created_at = notification.created_at.strftime("%Y-%m-%d %H:%M") %>
 <% case notification.action %>
+<%# 応募 %>
 <% when "entry" %>
-<p>
+<td class="notification">
   <%= link_to user_path(visitor) do %>
-    <%= image_tag visitor.icon.url, size: "50x50" %>
-    <%= visitor.nickname %>
+    <div class="visitor-icon text-center">
+      <div class="user-image">
+        <%= image_tag visitor.icon.url, size: "50x50", class: "img-circle img-fluid" %>
+      </div>
+      <div class="visitor-name">
+        <%= visitor.nickname %>
+      </div>
+    </div>
   <% end %>
-  さんが
-  <%= link_to "あなたの投稿", recruitment_path(notification.recruitment_id) %>
-  に応募しました。
-  <%= render "update_button", notification: notification %>
-</p>
+  <div class="notification-wording">
+    さんが
+    <%= link_to "あなたの投稿", recruitment_path(notification.recruitment_id) %>
+    に応募しました。
+    <%= render "update_button", notification: notification %>
+  </div>
+</td>
+<%# ダイレクトメッセージ %>
 <% when "direct_message" %>
-<p>
+<td class="notification">
   <%= link_to user_path(visitor) do %>
-    <%= image_tag visitor.icon.url, size: "50x50" %>
-    <%= visitor.nickname %>
+    <div class="visitor-icon text-center">
+      <div class="user-image">
+        <%= image_tag visitor.icon.url, size: "50x50", class: "img-circle img-fluid" %>
+      </div>
+      <div class="visitor-name">
+        <%= visitor.nickname %>
+      </div>
+    </div>
   <% end %>
-  さんから
-  <%= link_to "ダイレクトメッセージ", room_path(notification.room_id) %>
-  が届きました。
-  <%= render "update_button", notification: notification %>
-</p>
+  <div class="notification-wording">
+    さんから
+    <%= link_to "ダイレクトメッセージ", room_path(notification.room_id) %>
+    が届きました。
+    <%= render "update_button", notification: notification %>
+  </div>
+</td>
+<%# チームメッセージ %>
 <% when "team_message" %>
-<p>
-  <%= link_to "チーム", team_path(notification.team_id) %>
-  にメッセージが投稿されました。
-  <%= render "update_button", notification: notification %>
-</p>
+<td class="notification">
+  <div class="team-message-notification">
+    <%= link_to "チーム", team_path(notification.team_id) %>
+    にメッセージが投稿されました。
+    <%= render "update_button", notification: notification %>
+  </div>
+</td>
+<%# 招待 %>
 <% when "invitation" %>
-<p>
+<td class="notification">
   <%= link_to user_path(visitor) do %>
-    <%= image_tag visitor.icon.url, size: "50x50" %>
-    <%= visitor.nickname %>
+    <div class="visitor-icon text-center">
+      <div class="user-image">
+        <%= image_tag visitor.icon.url, size: "50x50", class: "img-circle img-fluid" %>
+      </div>
+      <div class="visitor-name">
+        <%= visitor.nickname %>
+      </div>
+    </div>
   <% end %>
-  さん
-  からチームへの招待が届きました。
-  <%= link_to "参加する", join_team_path(notification.team_id) %>
-  <%= link_to "削除", notification_path(notification), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "削除しますか？" } %>
-</p>
+  <div class="notification-wording">
+    さん
+    からチームへの招待が届きました。
+    <%= link_to "参加する", join_team_path(notification.team_id), class: "btn btn-info btn-sm" %>
+    <%= link_to "削除", notification_path(notification), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "削除しますか？" } %>
+  </div>
+</td>
 <% end %>

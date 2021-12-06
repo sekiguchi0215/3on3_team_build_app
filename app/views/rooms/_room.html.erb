@@ -1,15 +1,31 @@
 <div class="room-container">
   <% anotherUserRoomKey = room.room_keys.where.not(user_id: current_user.id) %>
   <% anotherUser = User.find(anotherUserRoomKey.first[:user_id]) %>
-  <tr>
+  <tr class="text-center">
     <td>
       <%= link_to room_path(room) do %>
-        <%= image_tag anotherUser.icon.url, size: "100x100" %>
-        <%= anotherUser.nickname  %>
+        <div class="user-icon">
+          <div class="user-image">
+            <%= image_tag anotherUser.icon.url, size: "70x70", class: "img-fluid img-circle" %>
+          </div>
+          <div class="index-user-nickname">
+            <%= anotherUser.nickname %>
+          </div>
+        </div>
       <% end %>
     </td>
-    <td style="color: grey; vertical-align: middle;">
-      <%= room.show_last_direct_message %>
+    <td class="align-middle">
+      <div class="last-message">
+        <% if room.show_last_direct_message_user_nickname == current_user.nickname %>
+          <span>あなた</span>
+        <% else %>
+          <%= room.show_last_direct_message_user_nickname %>
+        <% end %>
+        : 
+        <%= room.show_last_direct_message %>
+      </div>
+    </td>
+    <td class="last-message align-middle">
     </td>
   </tr>
 </div>

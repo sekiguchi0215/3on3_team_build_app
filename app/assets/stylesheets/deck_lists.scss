@@ -1,3 +1,54 @@
 // Place all the styles related to the deck_lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 共通スタイル
+
+.margin {
+  margin: 1.5rem 1rem 0 1rem;
+}
+
+.radio-button {
+  margin-left: 1rem;
+}
+
+.button-label {
+  font-size: 1.1rem;
+}
+
+.button {
+  width: 50%;
+}
+
+// 詳細表示ページ
+
+.deck-status {
+  margin: 1.5rem;
+}
+
+.buttons {
+  margin: 0 auto;
+}
+
+.post-button {
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+.deck-free-space {
+  margin: 1.5rem;
+  padding: 1rem 1.5rem 0 1.5rem;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: left;
+}
+
+// 編集ページ
+
+.free-content-label {
+  text-align: left;
+}
+
+.text-area-height {
+  height: 3rem;
+}

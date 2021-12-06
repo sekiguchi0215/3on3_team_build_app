@@ -1,0 +1,12 @@
+<% unless @user == current_user %>
+  <% if @haveRoom == true %>
+    <%= link_to "メッセージを送る", room_path(@roomId) %>
+  <% else %>
+    <%= form_with model: @room, local: true do |f| %>
+      <%= fields_for @userRoomKey do |r| %>
+        <%= r.hidden_field :user_id, value: @user.id %>
+      <% end %>
+      <%= f.submit "ダイレクトメッセージを開始する", class: "btn btn-outline-success form-control" %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,42 +1,118 @@
 <div class="user-show-content">
-  <div class="user-show-icon">
-    <%= image_tag @user.icon.url, :size => "300x300" %>
-    <%= @user.nickname %>
+  <div class="user-icon text-center user-margin">
+    <div class="user-image">
+      <%= image_tag @user.icon.url, :size => "150x150" %>
+    </div>
+    <div class="user-name">
+      <h5>
+        <%= @user.nickname %>
+      </h5>
+    </div>
   </div>
-  <div class="user-show-introduction">
+  <div class="user-introduction">
     <%= simple_format (h @user.introduction) %>
   </div>
-  <div>
-    <%= link_to "デッキリスト", deck_lists_path %>
-  </div>
-  <hr>
-  <% if @decks.exists? %>
-    <%= render partial: "deck", collection: @decks %>
-  <% else %>
-    <p>公開中のデッキはありません。</p>
-  <% end %>
-  <hr>
   <div class="user-show-cell">
-    <% if @user == current_user %>
+    <%= render "room" %>
+  </div>
+</div>
+<hr>
+<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+  <%# デッキリスト %>
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-deck-tab" data-toggle="pill" href="#pills-deck" role="tab" aria-controls="pills-deck" aria-selected="true">デッキリスト</a>
+  </li>
+  <%# メンバー募集 %>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-recruitment-tab" data-toggle="pill" href="#pills-recruitment" role="tab" aria-controls="pills-recruitment" aria-selected="false">募集</a>
+  </li>
+  <% if @user == current_user %>
+    <%# 応募 %>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">応募</a>
+    </li>
+    <%# ダイレクトメッセージ %>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-room-tab" data-toggle="pill" href="#pills-room" role="tab" aria-controls="pills-room" aria-selected="false">ダイレクトメッセージ</a>
+    </li>
+    <%# チーム %>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">チーム</a>
+    </li>
+  <% end %>
+</ul>
+<hr>
+<div class="tab-content" id="pills-tabContent">
+  <%# デッキリスト %>
+  <div class="tab-pane fade show active margin" id="pills-deck" role="tabpanel" aria-labelledby="pills-deck-tab">
+    <% if @decks.exists? %>
+      <div class="container">
+        <div class="row row-cols-3">
+          <%= render partial: "deck", collection: @decks %>
+        </div>
+      </div>
+    <% else %>
+      <% if @user == current_user %>
+        <div class="button text-center">
+          <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-primary btn-lg" %>
+        </div>
+      <% else %>
+        <h5 class="text-center button">公開中のデッキはありません。</h5>
+      <% end %>
+    <% end %>
+  </div>
+  <%# 募集 %>
+  <div class="tab-pane fade margin" id="pills-recruitment" role="tabpanel" aria-labelledby="pills-recruitment-tab">
+    <% if @recruitments.exists? %>
+      <div class="row row-cols-3">
+        <%= render partial: "recruitment", collection: @recruitments %>
+      </div>
+    <% else %>
+      <% if @user == current_user %>
+        <div class="button text-center">
+          <%= link_to "メンバーを募集する", new_deck_list_path, class: "btn btn-info btn-lg" %>
+        </div>
+      <% else %>
+        <h5 class="text-center button">
+          メンバー募集はありません。
+        </h5>
+      <% end %>
+    <% end %>
+  </div>
+  <% if @user == current_user %>
+    <%# 応募 %>
+    <div class="tab-pane fade margin" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <% if @entries.exists? %>
         <%= render partial: "recruitments/recruitment", collection: @entries %>
       <% else %>
-        まだ応募していません。
+        <div class="button text-center">
+          <%= link_to "募集を探す", recruitments_path, class: "btn btn-warning btn-lg" %>
+        </div>
       <% end %>
-    <% end %>
-  </div>
-  <div class="user-show-cell">
-    <% unless @user == current_user %>
-      <% if @haveRoom == true %>
-        <%= link_to "メッセージを送る", room_path(@roomId) %>
+    </div>
+    <%# ダイレクトメッセージ %>
+    <div class="tab-pane fade margin" id="pills-room" role="tabpanel" aria-labelledby="pills-room-tab">
+      <% if @rooms.exists? %>
+        <table class="table table-borderless">
+          <%= render partial: "rooms/room", collection: @rooms %>
+        </table>
       <% else %>
-        <%= form_with model: @room, local: true do |f| %>
-          <%= fields_for @userRoomKey do |r| %>
-            <%= r.hidden_field :user_id, value: @user.id %>
-          <% end %>
-          <%= f.submit "ダイレクトメッセージを開始する" %>
-        <% end %>
+        <div class="button text-center">
+          <%= link_to "メッセージを送る", users_path, class: "btn btn-primary btn-lg" %>
+        </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+    <%# チーム %>
+    <div class="tab-pane fade margin" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <% if @teams.exists? %>
+        <table class="table table-borderless">
+          <%= render partial: "team", collection: @teams %>
+        </table>
+      <% else %>
+        <div class="button text-center">
+          <%= link_to "チームを作成する", new_team_path, class: "btn btn-success btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -1,5 +1,5 @@
 <%= form_with model: @team_message, url: team_messages_path, local: true do |f| %>
-  <%= f.text_field :message, required: true, placeholder: "メッセージを入力" %>
+  <%= f.text_field :message, required: true, placeholder: "メッセージを入力", class: "form-control" %>
   <%= f.hidden_field :team_id, value: @team.id %>
-  <%= f.submit "送信する" %>
+  <%= f.submit "送信", class: "btn btn-success message-submit form-control" %>
 <% end %>

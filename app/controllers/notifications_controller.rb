@@ -2,11 +2,8 @@ class NotificationsController < ApplicationController
   PER_PAGE = 20
 
   def index
-    @notifications = if params[:which] == "all"
-        current_user.passive_notifications.page(params[:page]).per(PER_PAGE).order(:updated_at)
-      else
-        current_user.passive_notifications.where(checked: false).limit(20).order(:updated_at)
-      end
+    @notifications = current_user.passive_notifications.where(checked: false).limit(20).order(:updated_at)
+    @all_notifications = current_user.passive_notifications.page(params[:page]).per(PER_PAGE).order(:updated_at)
   end
 
   def update
@@ -16,7 +13,7 @@ class NotificationsController < ApplicationController
   end
 
   def update_all
-    @notifications = current_user.passive_notifications.where(checked: false)
+    @notifications = current_user.passive_notifications.where(checked: false).where.not(action: "invitation")
     @notifications.map { |notification| notification.update(checked: true) }
     redirect_to request.referer, notice: "全て既読にしました。"
   end

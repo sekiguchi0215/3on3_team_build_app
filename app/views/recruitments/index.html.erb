@@ -1,6 +1,16 @@
 <div class="page-top" style="margin-bottom: 20px;">
-  <h1>募集一覧</h1>
-  <%= link_to "募集を投稿する", new_recruitment_path %>
-  <%= link_to "チームを作成する", new_team_path %>
+  <h3 class="text-center page-title">募集一覧</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <%= link_to "募集を投稿する", new_recruitment_path, class: "btn btn-success form-control" %>
+      </div>
+      <div class="col">
+        <%= link_to "チームを作成する", new_team_path, class: "btn btn-info form-control" %>
+      </div>
+    </div>
+  </div>
 </div>
-<%= render partial: "recruitment", collection: @recruitments %>
+<div class="row row-cols-3">
+  <%= render partial: "recruitment", collection: @recruitments %>
+</div>
