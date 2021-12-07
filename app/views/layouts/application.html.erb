@@ -13,11 +13,14 @@
       <%= render "layouts/header" %>
       <%= render "layouts/user_information" %>
     </header>
-    <main >
+    <main>
       <%= render "layouts/flash" %>
       <div class="base-container <%= max_width %>">
         <%= yield %>
       </div>
     </main>
+    <footer class="align-middle">
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>
