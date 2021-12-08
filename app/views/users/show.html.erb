@@ -1,4 +1,4 @@
-<div class="user-show-content">
+<div class="user-show-content padding-top-sm">
   <div class="user-icon text-center user-margin">
     <div class="user-image">
       <%= image_tag @user.icon.url, :size => "150x150" %>
@@ -9,7 +9,7 @@
       </h5>
     </div>
   </div>
-  <% unless @user.introduction == nil %>
+  <% unless @user.introduction == nil || @user.introduction == "" %>
     <div class="user-introduction">
       <%= simple_format (h @user.introduction) %>
     </div>
