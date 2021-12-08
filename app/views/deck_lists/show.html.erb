@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="text-center padding-top-sm">
   <div class="deck-status">
     <h3><span style="<%= status_color(@deck) %>"><%= deck_status(@deck) %></span>のデッキ</h3>
   </div>
@@ -8,10 +8,16 @@
   <div class="deck-free-space">
     <%= simple_format (h @deck.content) %>
   </div>
-  <div class="buttons">
-    <% if @deck.user_id == current_user.id %>
-      <%= link_to "編集", edit_deck_list_path(@deck), class: "btn btn-success post-button" %>
-      <%= link_to "削除", deck_list_path, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger post-button" %>
-    <% end %>
-  </div>
+  <% if @deck.user_id == current_user.id %>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <%= link_to "編集", edit_deck_list_path(@deck), class: "btn btn-success form-control" %>
+        </div>
+        <div class="col">
+          <%= link_to "削除", deck_list_path, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger form-control" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

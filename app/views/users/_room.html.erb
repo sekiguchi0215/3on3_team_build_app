@@ -1,6 +1,6 @@
 <% unless @user == current_user %>
   <% if @haveRoom == true %>
-    <%= link_to "メッセージを送る", room_path(@roomId) %>
+    <%= link_to "メッセージを送る", room_path(@roomId), class: "btn btn-outline-info form-control" %>
   <% else %>
     <%= form_with model: @room, local: true do |f| %>
       <%= fields_for @userRoomKey do |r| %>
