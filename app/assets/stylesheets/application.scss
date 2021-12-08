@@ -24,7 +24,7 @@
   @extend .alert-danger;
 }
 
-html {
+main {
   min-height: 100vh;
 }
 
@@ -82,7 +82,7 @@ html {
 // フッター
 
 .footer-container {
-  height: 6rem;
+  height: 4rem;
   background-color: #808080;
   display: flex;
   align-items: center;
