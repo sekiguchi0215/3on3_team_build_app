@@ -28,6 +28,7 @@ main {
   min-height: 100vh;
 }
 
+// ロゴのサイズ
 .app-logo {
   width: 12rem;
   height: 8rem;
@@ -35,7 +36,18 @@ main {
 
 .base-container {
   margin: 0 auto;
-  padding: 1rem;
+}
+
+.padding-top-lg {
+  padding-top: 10rem;
+}
+
+.padding-top-md {
+  padding-top: 5rem;
+}
+
+.padding-top-sm {
+  padding-top: 3rem;
 }
 
 .mw-sm {
