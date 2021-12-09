@@ -26,6 +26,11 @@
   margin: 1.5rem;
 }
 
+.deck-image {
+  width: 48em;
+  height: 27rem;
+}
+
 .deck-free-space {
   margin: 1.5rem;
   padding: 1rem 1.5rem 0 1.5rem;
@@ -42,4 +47,18 @@
 
 .text-area-height {
   height: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .deck-image {
+    width: 90%;
+    height: 24rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .deck-image {
+    width: 90%;
+    height: 16rem;
+  }
 }
