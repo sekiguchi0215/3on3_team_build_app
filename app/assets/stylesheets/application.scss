@@ -32,14 +32,20 @@ main {
   min-height: 100vh;
 }
 
+.base-container {
+  margin: 0 auto;
+}
+
 // ロゴのサイズ
 .app-logo {
   width: 12rem;
   height: 8rem;
 }
 
-.base-container {
-  margin: 0 auto;
+// 通知機能のアイコン
+.notification-icon {
+  position: absolute;
+  z-index: 10;
 }
 
 // padding
