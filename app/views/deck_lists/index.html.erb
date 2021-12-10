@@ -1,8 +1,41 @@
-<h1>登録済みデッキ</h1>
-<% if @decks.exists? %>
-  <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-info" %>
-  <%= render partial: "deck", collection: @decks %>
-<% else %>
-  <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-primary" %>
-<% end %>
-<%= paginate @decks %>
+<h3 class="text-center page-title">デッキリスト</h3>
+<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-all-deck-tab" data-toggle="pill" href="#pills-all-deck" role="tab" aria-controls="pills-all-deck" aria-selected="true">
+      全てのデッキリスト
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-deck-tab" data-toggle="pill" href="#pills-deck" role="tab" aria-controls="pills-deck" aria-selected="false">
+      自分のデッキリスト
+    </a>
+  </li>
+</ul>
+<div class="tab-content margin" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-all-deck" role="tabpanel" aria-labelledby="pills-all-deck-tab">
+    <% if @all_decks.exists? %>
+      <div class="container">
+        <div class="row row-cols-3">
+          <%= render partial: "deck", collection: @all_decks %>
+        </div>
+        <%= paginate @all_decks %>
+      </div>
+    <% else %>
+      <h5 class="text-center padding-top-sm">公開中のデッキはありません。</h5>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="pills-deck" role="tabpanel" aria-labelledby="pills-deck-tab">
+    <% if @decks.exists? %>
+      <div class="container">
+        <div class="row row-cols-3">
+          <%= render partial: "deck", collection: @decks %>
+        </div>
+        <%= paginate @decks %>
+      </div>
+    <% else %>
+      <div class="button text-center">
+        <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>

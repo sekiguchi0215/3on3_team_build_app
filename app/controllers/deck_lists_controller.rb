@@ -4,6 +4,7 @@ class DeckListsController < ApplicationController
 
   def index
     @decks = current_user.deck_lists.page(params[:page]).per(PER_PAGE).order(:updated_at)
+    @all_decks = DeckList.where(status: "public").page(params[:page]).per(PER_PAGE).order(:updated_at)
   end
 
   def show
