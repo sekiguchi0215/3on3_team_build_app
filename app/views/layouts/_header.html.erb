@@ -19,33 +19,39 @@
             <%= link_to "募集する", new_recruitment_path, class: "dropdown-item" %>
           </div>
         </li>
-        <li class="nav-item">
-          <%= link_to "デッキを登録する", new_deck_list_path, class: "nav-link" %>
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            デッキリスト
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "デッキを登録する", new_deck_list_path, class: "dropdown-item" %>
+            <%= link_to "デッキリストを見る", deck_lists_path, class: "dropdown-item" %>
+          </div>
         </li>
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "マイページ", user_path(current_user), class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <% if unchecked_notifications.any? %>
             <i class="fa fa-circle notification-icon"></i>
           <% end %>
           <%= link_to "通知一覧", notifications_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
       </ul>
     <% else %>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "nav-link" %>
         </li>
       </ul>
