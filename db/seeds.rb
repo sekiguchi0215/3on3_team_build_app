@@ -8,6 +8,10 @@
 
 password = "password"
 
+AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password") if Rails.env.development?
+
+puts "管理ユーザーの初期データの投入に成功しました。"
+
 User.create!(
   nickname: "test1",
   introduction: "テストユーザー１",
@@ -37,4 +41,47 @@ User.create!(
 )
 
 puts "ユーザーの初期データの投入に成功しました。"
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+DeckList.create!(
+  user_id: 2,
+  deck_list: File.open("public/images/bondbluehybrid.jpg"),
+  status: "public",
+  content: "青絆ハイブリッド",
+)
+
+DeckList.create!(
+  user_id: 2,
+  deck_list: File.open("public/images/blackwargreymon.jpg"),
+  status: "public",
+  content: "黒ブラウォ",
+)
+
+DeckList.create!(
+  user_id: 3,
+  deck_list: File.open("public/images/bluehybrid.jpg"),
+  status: "public",
+  content: "青ハイ",
+)
+
+DeckList.create!(
+  user_id: 3,
+  deck_list: File.open("public/images/jesmon.jpg"),
+  status: "public",
+  content: "ジエス",
+)
+
+DeckList.create!(
+  user_id: 4,
+  deck_list: File.open("public/images/x-antibody.jpg"),
+  status: "public",
+  content: "X抗体",
+)
+
+DeckList.create!(
+  user_id: 4,
+  deck_list: File.open("public/images/yellowhybrid.jpg"),
+  status: "public",
+  content: "黄ハイ",
+)
+
+puts "デッキリストの初期データの投入に成功しました。"
