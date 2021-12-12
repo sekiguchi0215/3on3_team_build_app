@@ -20,6 +20,10 @@
   width: 50%;
 }
 
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+
 // 詳細表示ページ
 
 .deck-status {
@@ -59,6 +63,6 @@
 @media screen and (max-width: 480px) {
   .deck-image {
     width: 90%;
-    height: 16rem;
+    height: 13rem;
   }
 }
