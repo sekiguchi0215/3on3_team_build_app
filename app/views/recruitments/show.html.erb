@@ -70,7 +70,8 @@
       <% if @users.exists? %>
         <%= render "team_form" %>
       <% else %>
-        <p>まだ応募がありません。</p>
+        <hr>
+        <p class="text-center no-entry">まだ応募がありません。</p>
       <% end %>
     </div>
   <% end %>
