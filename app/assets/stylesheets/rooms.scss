@@ -8,13 +8,6 @@
   padding-top: 2rem;
 }
 
-.user-message {
-  margin-left: 5rem;
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-}
-
 .direct-message {
   margin-top: 0.5rem;
   padding: 0.5rem;
@@ -22,7 +15,37 @@
   border-radius: 10px;
 }
 
+.user-message {
+  margin-left: 3rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .direct-message-background-color {
   background-color: #afeeee;
-  margin-right: 5rem;
+  margin-right: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .direct-message-background-color {
+    background-color: #afeeee;
+    margin-right: 2rem;
+  }
+  .user-message {
+    margin-left: 2rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .direct-message-background-color {
+    background-color: #afeeee;
+    margin-right: 1rem;
+  }
+  .user-message {
+    margin-left: 1rem;
+    display: flex;
+    justify-content: flex-start;
+  }
 }
