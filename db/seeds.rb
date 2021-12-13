@@ -166,3 +166,25 @@ RoomKey.create!(
 )
 
 puts "ルームキーの初期データの投入に成功しました。"
+
+DirectMessage.create!(
+  [
+    {
+      user_id: 1,
+      room_id: 1,
+      message: "優勝しました！",
+    },
+    {
+      user_id: 2,
+      room_id: 1,
+      message: "おめでとうございます！",
+    },
+    {
+      user_id: 4,
+      room_id: 2,
+      message: "はじめまして。",
+    },
+  ]
+)
+
+puts "ダイレクトメッセージの初期データの投入に成功しました。"
