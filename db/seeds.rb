@@ -138,3 +138,31 @@ Entry.create!(
 )
 
 puts "応募の初期データの投入に成功しました。"
+
+Room.create!
+Room.create!
+
+puts "ルームの初期データの投入に成功しました。"
+
+RoomKey.create!(
+  [
+    {
+      room_id: 1,
+      user_id: 1,
+    },
+    {
+      room_id: 1,
+      user_id: 2,
+    },
+    {
+      room_id: 2,
+      user_id: 1,
+    },
+    {
+      room_id: 2,
+      user_id: 4,
+    },
+  ]
+)
+
+puts "ルームキーの初期データの投入に成功しました。"
