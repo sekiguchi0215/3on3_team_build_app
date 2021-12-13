@@ -85,3 +85,29 @@ DeckList.create!(
 )
 
 puts "デッキリストの初期データの投入に成功しました。"
+
+Recruitment.create!(
+  user_id: 1,
+  number_of_applicants: "two",
+  event_title: "第3回テスト杯",
+  recruitment_condition: "enjoy",
+  introduction: "第4回テスト杯開催希望。",
+)
+
+Recruitment.create!(
+  user_id: 2,
+  number_of_applicants: "one",
+  event_title: "第3回テスト杯",
+  recruitment_condition: "anyone",
+  introduction: "誰でも歓迎！",
+)
+
+Recruitment.create!(
+  user_id: 3,
+  number_of_applicants: "one",
+  event_title: "第3回テスト杯",
+  recruitment_condition: "seriousness",
+  introduction: "強者求む",
+)
+
+puts "メンバー募集の初期データの投入に成功しました。"
