@@ -111,3 +111,30 @@ Recruitment.create!(
 )
 
 puts "メンバー募集の初期データの投入に成功しました。"
+
+Entry.create!(
+  user_id: 2,
+  recruitment_id: 1,
+)
+
+Entry.create!(
+  user_id: 3,
+  recruitment_id: 1,
+)
+
+Entry.create!(
+  user_id: 4,
+  recruitment_id: 1,
+)
+
+Entry.create!(
+  user_id: 1,
+  recruitment_id: 2,
+)
+
+Entry.create!(
+  user_id: 4,
+  recruitment_id: 2,
+)
+
+puts "応募の初期データの投入に成功しました。"
