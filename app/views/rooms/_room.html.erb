@@ -16,12 +16,13 @@
     </td>
     <td class="align-middle">
       <div class="last-message">
-        <% if room.show_last_direct_message_user_nickname == current_user.nickname %>
-          <span>あなた</span>
-        <% else %>
-          <%= room.show_last_direct_message_user_nickname %>
+        <% if room.direct_messages.exists? %>
+          <% if room.show_last_direct_message_user_nickname == current_user.nickname %>
+            <span>あなた</span>：
+          <% else %>
+            <%= room.show_last_direct_message_user_nickname %>：
+          <% end %>
         <% end %>
-        : 
         <%= room.show_last_direct_message %>
       </div>
     </td>
