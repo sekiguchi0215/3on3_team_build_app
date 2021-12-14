@@ -30,7 +30,7 @@
   border-radius: 10px;
 }
 
-.team-message-container {
+.team-messages-container {
   margin: 0.5rem 0;
 }
 
@@ -45,6 +45,7 @@
 
 .team-users-message {
   display: flex;
+  justify-content: flex-start;
 }
 
 .team-user-message {
@@ -57,4 +58,24 @@
 
 .team-submit {
   margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .team-message-background-color {
+    background-color: #98fb98;
+    margin-right: 1rem;
+  }
+  .team-users-container {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .team-message-background-color {
+    background-color: #98fb98;
+    margin-right: 0.1rem;
+  }
+  .team-users-container {
+    margin-left: 0.1rem;
+  }
 }

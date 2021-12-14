@@ -1,10 +1,9 @@
 <div class="team-message-container">
   <% if current_user.id == message.user_id %>
     <div class="current-user-message">
-      <div class="team-message team-message-background">
+      <div class="team-message team-message-background-color">
         <%= message.message %>
       </div>
-      <%# link_to "削除", team_message_path(message), method: :patch, data: { confirm: "削除しますか？" } %>
     </div>
   <% else %>
     <div class="team-users-message">
