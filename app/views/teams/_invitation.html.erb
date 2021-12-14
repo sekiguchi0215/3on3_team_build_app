@@ -1,7 +1,6 @@
 <% if @other_users.exists? %>
   <%= form_with model: @user, url: invitation_team_path(@team), method: :post, local: true do |f| %>
-    <%= f.label "招待するメンバー" %>
-    <%= f.collection_select :user_id, @other_users, :id, :nickname %>
-    <%= f.submit "招待する", class: "btn btn-sm btn-warning" %>
+    <%= f.collection_select :user_id, @other_users, :id, :nickname, {}, class: "form-control" %>
+    <%= f.submit "招待する", class: "btn btn-sm btn-warning form-control message-submit" %>
   <% end %>
 <% end %>
