@@ -43,45 +43,44 @@ User.create!(
 puts "ユーザーの初期データの投入に成功しました。"
 
 DeckList.create!(
-  user_id: 2,
-  deck_list: File.open("public/images/bondbluehybrid.jpg"),
-  status: "public",
-  content: "青絆ハイブリッド",
-)
-
-DeckList.create!(
-  user_id: 2,
-  deck_list: File.open("public/images/blackwargreymon.jpg"),
-  status: "public",
-  content: "黒ブラウォ",
-)
-
-DeckList.create!(
-  user_id: 3,
-  deck_list: File.open("public/images/bluehybrid.jpg"),
-  status: "public",
-  content: "青ハイ",
-)
-
-DeckList.create!(
-  user_id: 3,
-  deck_list: File.open("public/images/jesmon.jpg"),
-  status: "public",
-  content: "ジエス",
-)
-
-DeckList.create!(
-  user_id: 4,
-  deck_list: File.open("public/images/x-antibody.jpg"),
-  status: "public",
-  content: "X抗体",
-)
-
-DeckList.create!(
-  user_id: 4,
-  deck_list: File.open("public/images/yellowhybrid.jpg"),
-  status: "public",
-  content: "黄ハイ",
+  [
+    {
+      user_id: 1,
+      deck_list: File.open("public/images/bondbluehybrid.jpg"),
+      status: "public",
+      content: "青絆ハイブリッド\r\n現在下火",
+    },
+    {
+      user_id: 2,
+      deck_list: File.open("public/images/blackwargreymon.jpg"),
+      status: "public",
+      content: "黒ブラウォ\r\nカタログスペック高い",
+    },
+    {
+      user_id: 3,
+      deck_list: File.open("public/images/bluehybrid.jpg"),
+      status: "public",
+      content: "青ハイ\r\nスサノオがバグ",
+    },
+    {
+      user_id: 3,
+      deck_list: File.open("public/images/jesmon.jpg"),
+      status: "public",
+      content: "ジエス\r\nキメラモン強い",
+    },
+    {
+      user_id: 4,
+      deck_list: File.open("public/images/x-antibody.jpg"),
+      status: "public",
+      content: "X抗体\r\nアルファモン軸",
+    },
+    {
+      user_id: 4,
+      deck_list: File.open("public/images/yellowhybrid.jpg"),
+      status: "public",
+      content: "黄ハイ\r\nシャイン型",
+    },
+  ]
 )
 
 puts "デッキリストの初期データの投入に成功しました。"
@@ -122,28 +121,28 @@ Recruitment.create!(
 puts "メンバー募集の初期データの投入に成功しました。"
 
 Entry.create!(
-  user_id: 2,
-  recruitment_id: 1,
-)
-
-Entry.create!(
-  user_id: 3,
-  recruitment_id: 1,
-)
-
-Entry.create!(
-  user_id: 4,
-  recruitment_id: 1,
-)
-
-Entry.create!(
-  user_id: 1,
-  recruitment_id: 2,
-)
-
-Entry.create!(
-  user_id: 4,
-  recruitment_id: 2,
+  [
+    {
+      user_id: 2,
+      recruitment_id: 1,
+    },
+    {
+      user_id: 3,
+      recruitment_id: 1,
+    },
+    {
+      user_id: 4,
+      recruitment_id: 1,
+    },
+    {
+      user_id: 1,
+      recruitment_id: 2,
+    },
+    {
+      user_id: 4,
+      recruitment_id: 2,
+    },
+  ]
 )
 
 puts "応募の初期データの投入に成功しました。"
