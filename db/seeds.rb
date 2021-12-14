@@ -218,11 +218,11 @@ Member.create!(
       team_id: 1,
     },
     {
-      user_id: 1,
+      user_id: 4,
       team_id: 2,
     },
     {
-      user_id: 4,
+      user_id: 1,
       team_id: 2,
     },
     {
@@ -233,3 +233,40 @@ Member.create!(
 )
 
 puts "メンバーの初期データの投入に成功しました。"
+
+TeamMessage.create!(
+  [
+    {
+      team_id: 1,
+      user_id: 2,
+      message: "リモートで練習しませんか？",
+    },
+    {
+      team_id: 1,
+      user_id: 1,
+      message: "9時頃ならいけます！",
+    },
+    {
+      team_id: 1,
+      user_id: 3,
+      message: "自分も９時頃ならいけそうです！",
+    },
+    {
+      team_id: 1,
+      user_id: 2,
+      message: "了解です！",
+    },
+    {
+      team_id: 2,
+      user_id: 1,
+      message: "招待ありがとうございます。",
+    },
+    {
+      team_id: 2,
+      user_id: 1,
+      message: "よろしくお願いします！",
+    },
+  ]
+)
+
+puts "チームメッセージの初期データの投入に成功しました。"
