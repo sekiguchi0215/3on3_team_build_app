@@ -13,7 +13,7 @@
     <% if @messages.exists? %>
       <%= render partial: "message", collection: @messages %>
     <% else %>
-      <p class="text-center">まだメッセージはありません。</p>
+      <p class="text-center no-message">まだメッセージはありません。</p>
     <% end %>
   </div>
   <hr>

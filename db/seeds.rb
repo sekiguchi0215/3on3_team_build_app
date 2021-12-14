@@ -203,3 +203,34 @@ Team.create!
 Team.create!
 
 puts "チームの初期データの投入に成功しました。"
+
+Member.create!(
+  [
+    {
+      user_id: 1,
+      team_id: 1,
+    },
+    {
+      user_id: 2,
+      team_id: 1,
+    },
+    {
+      user_id: 3,
+      team_id: 1,
+    },
+    {
+      user_id: 1,
+      team_id: 2,
+    },
+    {
+      user_id: 4,
+      team_id: 2,
+    },
+    {
+      user_id: 3,
+      team_id: 3,
+    },
+  ]
+)
+
+puts "メンバーの初期データの投入に成功しました。"
