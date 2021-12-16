@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member do
       get :join
       post :invitation
+      delete :leave
     end
   end
   resources :team_messages, only: [:create, :update]
