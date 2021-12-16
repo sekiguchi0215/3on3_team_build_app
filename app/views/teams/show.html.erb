@@ -6,10 +6,10 @@
     <%= render partial: "user_link", collection: @members %>
   </div>
   <div class="invitation text-center">
-    <a data-toggle="collapse" href="#collapseExample" area-expanded="false" aria-controls="collapseExample">
+    <a class="btn btn-outline-info form-control" data-toggle="collapse" href="#collapseExample" area-expanded="false" aria-controls="collapseExample">
       招待を送る
     </a>
-    <div class="collapse" id="collapseExample">
+    <div class="collapse invitation-container" id="collapseExample">
       <%= render "invitation" %>
     </div>
   </div>
@@ -24,5 +24,9 @@
   <hr>
   <div class="team-message-form">
     <%= render "team_messages/form" %>
+  </div>
+  <hr>
+  <div class="leave-button">
+    <%= link_to "退会", leave_team_path(@team), method: :delete, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger form-control" %>
   </div>
 </div>
