@@ -66,6 +66,12 @@ class TeamsController < ApplicationController
     redirect_to team_path(@team), notice: "チームに参加しました。"
   end
 
+  def leave
+    group = Group.find(params[:id])
+    Member.delete_by(user_id: current_user.id, group_id: group.id)
+    redirect_to root_path, alert: "チームから脱退しました。"
+  end
+
   private
 
   def team_params
