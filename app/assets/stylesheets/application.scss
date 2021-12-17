@@ -50,6 +50,13 @@ main {
   height: 10rem;
 }
 
+// ユーザーアイコン
+
+.icon-size {
+  width: 6rem;
+  height: 6rem;
+}
+
 // 通知機能のアイコン
 .notification-icon {
   color: red;
@@ -97,7 +104,7 @@ main {
 
 // 各一覧ページのタイトルに対するCSS
 .page-title {
-  margin: 1.5rem 0;
+  margin: 3rem 0;
 }
 
 // ダイレクトメッセージ機能、チームメッセージ機能
