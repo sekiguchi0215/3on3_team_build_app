@@ -15,17 +15,23 @@
             <%= recruitment.recruitment_condition_i18n %>
           </strong>
         </li>
-        <li id="recruitment-<%= recruitment.id %>" class="list-group-item entry-button">
-          <% if recruitment.user == current_user %>
-            <p>応募人数：<%= recruitment.entries_count %></p>
-          <% else %>
-            <% if recruitment.entried_by?(current_user) %>
-              <%= render "entries/unentry", recruitment: recruitment %>
+        <% if user_signed_in? %>
+          <li id="recruitment-<%= recruitment.id %>" class="list-group-item entry-button">
+            <% if recruitment.user == current_user %>
+              応募人数：<%= recruitment.entries_count %>
             <% else %>
-              <%= render "entries/entry", recruitment: recruitment %>
+              <% if recruitment.entried_by?(current_user) %>
+                <%= render "entries/unentry", recruitment: recruitment %>
+              <% else %>
+                <%= render "entries/entry", recruitment: recruitment %>
+              <% end %>
             <% end %>
-          <% end %>
-        </li>
+          </li>
+        <% else %>
+          <li class="list-group-item">
+            応募人数：<%= recruitment.entries_count %>
+          </li>
+        <% end %>
         <li class="list-group-item">
           <%= link_to user_path(recruitment.user.id) do %>
             <%= image_tag recruitment.user.icon.url, size: "50x50" %>
