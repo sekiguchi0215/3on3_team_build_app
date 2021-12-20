@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root "recruitments#index"
+  root "homes#home"
   devise_for :users, controllers: {
                        registrations: "users/registrations",
                        sessions: "users/sessions",
@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
-  get "home" => "homes#home"
   resources :users, only: [:index, :show]
   resources :deck_lists
   resources :recruitments do
