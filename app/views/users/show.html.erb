@@ -1,5 +1,5 @@
-<div class="user-show-content padding-top-sm">
-  <div class="user-icon text-center user-margin">
+<div class="user-show-content">
+  <div class="user-icon text-center page-title">
     <div class="user-image">
       <%= image_tag @user.icon.url, :size => "150x150" %>
     </div>
@@ -60,7 +60,7 @@
     <% else %>
       <% if @user == current_user %>
         <div class="button text-center">
-          <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to "デッキを登録する", new_deck_list_path, class: "btn btn-primary" %>
         </div>
       <% else %>
         <h5 class="text-center button">公開中のデッキはありません。</h5>
@@ -76,7 +76,7 @@
     <% else %>
       <% if @user == current_user %>
         <div class="button text-center">
-          <%= link_to "メンバーを募集する", new_deck_list_path, class: "btn btn-info btn-lg" %>
+          <%= link_to "メンバーを募集する", new_deck_list_path, class: "btn btn-info" %>
         </div>
       <% else %>
         <h5 class="text-center button">
@@ -92,7 +92,7 @@
         <%= render partial: "recruitments/recruitment", collection: @entries %>
       <% else %>
         <div class="button text-center">
-          <%= link_to "募集を探す", recruitments_path, class: "btn btn-warning btn-lg" %>
+          <%= link_to "募集を見る", recruitments_path, class: "btn btn-warning" %>
         </div>
       <% end %>
     </div>
@@ -104,7 +104,7 @@
         </table>
       <% else %>
         <div class="button text-center">
-          <%= link_to "メッセージを送る", users_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to "メッセージを送る", users_path, class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
@@ -116,7 +116,7 @@
         </table>
       <% else %>
         <div class="button text-center">
-          <%= link_to "チームを作成する", new_team_path, class: "btn btn-success btn-lg" %>
+          <%= link_to "チームを作成する", new_team_path, class: "btn btn-success" %>
         </div>
       <% end %>
     </div>

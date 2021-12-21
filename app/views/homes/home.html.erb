@@ -1,0 +1,68 @@
+<div class="top-page-container">
+  <div class="text-center">
+    <div class="icon">
+      <%= image_tag "logo.png", class: "home-icon" %>
+    </div>
+    <div class="login-link container">
+      <div class="row">
+        <div class="col">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-success form-control" %>
+        </div>
+        <div class="col">
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary form-control" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="margin-top: 1rem;">
+          <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "btn btn-warning form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="introduction-container text-center">
+    <div class="title">
+      <h1>
+        <strong>Tamers Connect</strong>
+        とは？
+      </h1>
+    </div>
+    <div class="home-introduction">
+      Tamers Connect は、デジモンカードの３人チーム形式の大会参加メンバーを募るサイトです。<br>
+      目的に会ったメンバーを募集できるため、モチベーションが近いメンバー同士でチームを構成することができます。<br>
+      Tamers Connect をよろしくお願い申し上げます。
+    </div>
+  </div>
+  <div class="function-container text-center">
+    <h1 class="service-title">サービス</h1>
+    <div class="functions text-center">
+      <div class="function">
+        <h4 class="function-title">
+          募集・応募
+        </h4>
+        <div class="function-introduction">
+          メンバーを募集したり、募集に対して応募できます。<br>
+          条件に合うメンバーを探して大会に参加しましょう！
+        </div>
+      </div>
+      <div class="function">
+        <h4 class="function-title">
+          ダイレクトメッセージ
+        </h4>
+        <div class="function-introduction">
+          他のユーザーに対して１対１でメッセージを送ることができます。<br>
+          チームに招待する前に質問を送ってみましょう！
+        </div>
+      </div>
+      <div class="function">
+        <h4 class="function-title">
+          チームを結成する
+        </h4>
+        <div class="function-introduction">
+          応募があったメンバーを招待してチームを結成できます。<br>
+          メンバー間でメッセージを送ることも可能です。<br>
+          大会までの打ち合わせを行いましょう！
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

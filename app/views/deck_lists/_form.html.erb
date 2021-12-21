@@ -1,15 +1,17 @@
 <%= render "layouts/error_messages", model: @deck %>
 <%= form_with model: @deck, loacle: true do |f| %>
-  <div class="deck-list-form margin">
-    <%= f.label :deck_list, class: "form-label" %>
-    <%= f.file_field :deck_list, accept: "deck_image/png, deck_image/jpg, deck_image/jpeg, deck_image/gif", class: "form-control" %>
+  <div class="input-group margin">
+    <div class="custom-file">
+      <%= f.file_field :deck_list, accept: "deck_image/png, deck_image/jpg, deck_image/jpeg, deck_image/gif", class: "custom-file-input" %>
+      <%= f.label :deck_list, class: "custom-file-label" %>
+    </div>
   </div>
   <div class="free-content margin">
     <div class="free-content-label">
       <%= f.label :content %>
     </div>
     <div class="free-space">
-      <%= f.text_area :content, class: "form-control" %>
+      <%= f.text_area :content, class: "form-control", rows: "10" %>
     </div>
   </div>
   <div class="deck-status-button margin text-center">

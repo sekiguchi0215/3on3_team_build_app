@@ -19,7 +19,11 @@
 
 // 招待機能
 .invitation {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+}
+
+.invitation-container {
+  margin-top: 0.5rem;
 }
 
 // チームメッセージ
@@ -30,11 +34,11 @@
   border-radius: 10px;
 }
 
-.team-message-container {
+.team-messages-container {
   margin: 0.5rem 0;
 }
 
-.team-message-background {
+.team-message-background-color {
   margin-right: 4rem;
   background-color: #98fb98;
 }
@@ -45,6 +49,7 @@
 
 .team-users-message {
   display: flex;
+  justify-content: flex-start;
 }
 
 .team-user-message {
@@ -53,4 +58,28 @@
 
 .team-user-name {
   font-size: 0.9rem;
+}
+
+.team-submit {
+  margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .team-message-background-color {
+    background-color: #98fb98;
+    margin-right: 1rem;
+  }
+  .team-users-container {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .team-message-background-color {
+    background-color: #98fb98;
+    margin-right: 0.1rem;
+  }
+  .team-users-container {
+    margin-left: 0.1rem;
+  }
 }

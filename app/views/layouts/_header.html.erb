@@ -1,7 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="navbar-brand">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.png", class: "app-logo" %>
+    <% if user_signed_in? %>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag "logo.png", class: "app-logo" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", class: "app-logo" %>
+      <% end %>
     <% end %>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,39 +17,50 @@
     <% if user_signed_in? %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle header-font" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             メンバー募集
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "募集を見る", recruitments_path, class: "dropdown-item" %>
-            <%= link_to "募集する", new_recruitment_path, class: "dropdown-item" %>
+            <%= link_to "募集を投稿する", new_recruitment_path, class: "dropdown-item header-font" %>
+            <%= link_to "募集を見る", recruitments_path, class: "dropdown-item header-font" %>
           </div>
         </li>
-        <li class="nav-item">
-          <%= link_to "デッキを登録する", new_deck_list_path, class: "nav-link" %>
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle header-font" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            デッキリスト
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "デッキを登録する", new_deck_list_path, class: "dropdown-item header-font" %>
+            <%= link_to "デッキリストを見る", deck_lists_path, class: "dropdown-item header-font" %>
+          </div>
         </li>
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "マイページ", user_path(current_user), class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "マイページ", user_path(current_user), class: "nav-link header-font" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "通知一覧", notifications_path, class: "nav-link" %>
+        <li class="nav-item active">
+          <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle notification-icon"></i>
+          <% end %>
+          <%= link_to "通知一覧", notifications_path, class: "nav-link header-font" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link header-font" %>
         </li>
       </ul>
     <% else %>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <%= link_to "募集を見る", recruitments_path, class: "nav-link header-font" %>
+        </li>
+      </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-link header-font" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link header-font" %>
         </li>
       </ul>
     <% end %>

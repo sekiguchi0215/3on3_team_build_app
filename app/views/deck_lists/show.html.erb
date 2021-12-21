@@ -1,9 +1,19 @@
-<div class="text-center padding-top-sm">
-  <div class="deck-status">
-    <h3><span style="<%= status_color(@deck) %>"><%= deck_status(@deck) %></span>のデッキ</h3>
+<div class="text-center">
+  <div class="deck-status page-title">
+    <% if @deck.id == current_user.id %>
+      <h3><span style="<%= status_color(@deck) %>"><%= deck_status(@deck) %></span>のデッキ</h3>
+    <% else %>
+      <strong>
+        <%= link_to user_path(@deck.user.id) do %>
+          <%= image_tag @deck.user.icon.url, class: "icon-size" %>
+          <%= @deck.user.nickname %>
+        <% end %>
+        さんのデッキ
+      <% end %>
+    </strong>
   </div>
   <div class="deck-list-image">
-    <%= image_tag @deck.deck_list.url, :style => "max-height: 450px; max-width: 800px; " %>
+    <%= image_tag @deck.deck_list.url, class: "deck-image" %>
   </div>
   <div class="deck-free-space">
     <%= simple_format (h @deck.content) %>

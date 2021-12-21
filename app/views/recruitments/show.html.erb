@@ -58,7 +58,11 @@
     </tr>
     <tr>
       <th class="text-center">募集詳細</th>
-      <td><%= simple_format (h @recruitment.introduction) %></td>
+      <td>
+        <div class="recruitment-introduction">
+          <%= simple_format (h @recruitment.introduction) %>
+        </div>
+      </td>
     </tr>
   </table>
   <hr>
@@ -70,7 +74,8 @@
       <% if @users.exists? %>
         <%= render "team_form" %>
       <% else %>
-        <p>まだ応募がありません。</p>
+        <hr>
+        <p class="text-center no-entry">まだ応募がありません。</p>
       <% end %>
     </div>
   <% end %>

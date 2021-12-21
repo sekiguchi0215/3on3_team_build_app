@@ -5,13 +5,19 @@
     <%= f.label :nickname %>
     <%= f.text_field :nickname, autofocus: true, autocomplete: 'nickname', required: true, class: 'form-control' %>
   </div>
+  <div class="form-group margin">
+    <div class="custom-file">
+      <%= f.file_field :icon, accept: "deck_image/png, deck_image/jpg, deck_image/jpeg, deck_image/gif", class: "custom-file-input" %>
+      <%= f.label :icon, class: "custom-file-label" %>
+    </div>
+  </div>
   <div class="form-group">
-    <%= f.label :icon %>
-    <%= f.file_field :icon, autofocus: true, autocomplete: 'icon', class: 'form-control', accept: "image/png, image/jpg, image/jpeg, image/gif" %>
+    <%# f.label :icon %>
+    <%# f.file_field :icon, autofocus: true, autocomplete: 'icon', class: 'form-control-file', accept: "image/png, image/jpg, image/jpeg, image/gif" %>
   </div>
   <div class="form-group">
     <%= f.label :introduction %>
-    <%= f.text_area :introduction, autofocus: true, autocomplete: 'introduction', class: 'form-control' %>
+    <%= f.text_area :introduction, autofocus: true, autocomplete: 'introduction', class: 'form-control', rows: "4" %>
   </div>
   <hr>
   <div class="form-group">

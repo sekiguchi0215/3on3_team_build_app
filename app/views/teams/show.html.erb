@@ -6,18 +6,27 @@
     <%= render partial: "user_link", collection: @members %>
   </div>
   <div class="invitation text-center">
-    <%= render "invitation" %>
+    <a class="btn btn-outline-info form-control" data-toggle="collapse" href="#collapseExample" area-expanded="false" aria-controls="collapseExample">
+      招待を送る
+    </a>
+    <div class="collapse invitation-container" id="collapseExample">
+      <%= render "invitation" %>
+    </div>
   </div>
   <hr>
-  <div class="team-message-container">
+  <div class="team-messages-container">
     <% if @messages.exists? %>
       <%= render partial: "message", collection: @messages %>
     <% else %>
-      <p class="text-center">まだメッセージはありません。</p>
+      <p class="text-center no-message">まだメッセージはありません。</p>
     <% end %>
   </div>
   <hr>
   <div class="team-message-form">
     <%= render "team_messages/form" %>
+  </div>
+  <hr>
+  <div class="leave-button">
+    <%= link_to "退会", leave_team_path(@team), method: :delete, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger form-control" %>
   </div>
 </div>

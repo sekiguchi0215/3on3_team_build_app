@@ -1,5 +1,25 @@
-<div>
-  <%= link_to deck_list_path(deck) do %>
-    <%= image_tag deck.deck_list.url, size: "160x90" %>
-  <% end %>
+<div class="col-12 col-md-6 col-lg-3 margin-bottom">
+  <div class="card card-style">
+    <div class="card-header p-0">
+      <%= link_to deck_list_path(deck) do %>
+        <%= image_tag deck.deck_list.url, size: "160x90", class: "img-fluid card-img-top" %>
+      <% end %>
+    </div>
+    <% if deck.user_id == current_user.id %>
+      <div class="card-footer">
+        <div class="text-center" style="<%= status_color(deck) %>">
+          <%= deck.status_i18n %>
+        </div>
+      </div>
+    <% else %>
+      <div class="card-footer">
+        <div class="text-center">
+          <%= link_to user_path(deck.user.id) do %>
+            <%= image_tag deck.user.icon.url, size: "50x50" %>
+            <%= deck.user.nickname %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

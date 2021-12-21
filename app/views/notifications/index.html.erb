@@ -24,7 +24,7 @@
         <%= link_to "全ての通知を削除する", destroy_all_notification_path(@all_notifications), method: :delete, data: { confirm: "全ての通知を削除しますか？" }, class: "btn btn-sm btn-danger notification-button form-control" %>
       </div>
     <% else %>
-      <div class="text-center">
+      <div class="text-center nothing">
         通知はありません。
       </div>
     <% end %>
@@ -42,7 +42,7 @@
         <%= link_to "全ての通知を削除する", destroy_all_notification_path(@all_notifications), method: :delete, data: { confirm: "全ての通知を削除しますか？" }, class: "btn btn-sm btn-danger notification-button form-control" %>
       </div>
     <% else %>
-      <div class="text-center">
+      <div class="text-center nothing">
         通知はありません。
       </div>
     <% end %>

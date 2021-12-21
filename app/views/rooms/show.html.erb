@@ -8,7 +8,7 @@
     <% if @direct_messages.exists? %>
       <%= render partial: "direct_message", collection: @direct_messages %>
     <% else %>
-      <div class="text-center">まだメッセージはありません。</div>
+      <div class="text-center no-message">まだメッセージはありません。</div>
     <% end %>
   </div>
   <hr>

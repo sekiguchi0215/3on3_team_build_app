@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root "users#index"
+  root "homes#home"
   devise_for :users, controllers: {
                        registrations: "users/registrations",
                        sessions: "users/sessions",
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member do
       get :join
       post :invitation
+      delete :leave
     end
   end
   resources :team_messages, only: [:create, :update]

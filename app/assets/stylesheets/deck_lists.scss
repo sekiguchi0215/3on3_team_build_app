@@ -20,10 +20,19 @@
   width: 50%;
 }
 
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+
 // 詳細表示ページ
 
 .deck-status {
   margin: 1.5rem;
+}
+
+.deck-image {
+  width: 48em;
+  height: 27rem;
 }
 
 .deck-free-space {
@@ -42,4 +51,18 @@
 
 .text-area-height {
   height: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .deck-image {
+    width: 90%;
+    height: 24rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .deck-image {
+    width: 90%;
+    height: 13rem;
+  }
 }

@@ -16,6 +16,10 @@
 
 @import 'bootstrap/scss/bootstrap';
 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/regular';
+
 .alert-notice {
   @extend .alert-success;
 }
@@ -26,16 +30,38 @@
 
 main {
   min-height: 100vh;
-}
-
-// ロゴのサイズ
-.app-logo {
-  width: 12rem;
-  height: 8rem;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .base-container {
   margin: 0 auto;
+}
+
+// ヘッダー
+
+.header-font {
+  font-size: 1.2rem;
+}
+
+// ロゴのサイズ
+.app-logo {
+  width: 14rem;
+  height: 10rem;
+}
+
+// ユーザーアイコン
+
+.icon-size {
+  width: 6rem;
+  height: 6rem;
+}
+
+// 通知機能のアイコン
+.notification-icon {
+  color: red;
+  position: absolute;
+  z-index: 10;
 }
 
 // padding
@@ -78,7 +104,7 @@ main {
 
 // 各一覧ページのタイトルに対するCSS
 .page-title {
-  margin: 1.5rem 0;
+  margin: 3rem 0;
 }
 
 // ダイレクトメッセージ機能、チームメッセージ機能
@@ -95,6 +121,16 @@ main {
 
 .last-message {
   color: grey;
+}
+
+.no-message {
+  margin: 3rem 0;
+}
+
+// ページネーション
+
+.pagination {
+  justify-content: center;
 }
 
 // フッター
