@@ -1,3 +1,56 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.icon {
+  margin-top: 5rem;
+}
+
+.home-icon {
+  width: 30rem;
+  height: 25rem;
+}
+
+.introduction-container {
+  background-color: #faebd7;
+  padding: 3.5rem;
+  margin: 5rem 0;
+  border-radius: 2rem;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.home-introduction {
+  line-height: 2rem;
+}
+
+.function-container {
+  margin-bottom: 7rem;
+}
+
+.service-title {
+  margin: 4rem 0;
+}
+
+.function {
+  background-color: #e0ffff;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.function-title {
+  margin-bottom: 1.5rem;
+}
+
+.function-introduction {
+  line-height: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+  .home-icon {
+    width: 90%;
+    height: 15rem;
+  }
+}
