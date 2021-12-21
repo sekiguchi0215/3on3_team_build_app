@@ -59,10 +59,52 @@ DeckList.create!(
       content: "青絆ハイブリッド\r\n現在下火",
     },
     {
-      user_id: 2,
+      user_id: 1,
+      deck_list: File.open("public/images/violetagro.jpg"),
+      status: "public",
+      content: "紫アグロ\r\nオーガ軸",
+    },
+    {
+      user_id: 1,
+      deck_list: File.open("public/images/redhybrid.jpg"),
+      status: "public",
+      content: "赤ハイブリッド",
+    },
+    {
+      user_id: 1,
+      deck_list: File.open("public/images/armorpail.jpg"),
+      status: "public",
+      content: "パイル型",
+    },
+    {
+      user_id: 1,
       deck_list: File.open("public/images/blackwargreymon.jpg"),
       status: "public",
       content: "黒ブラウォ\r\nカタログスペック高い",
+    },
+    {
+      user_id: 1,
+      deck_list: File.open("public/images/x-antibody.jpg"),
+      status: "public",
+      content: "X抗体\r\nアルファモン軸",
+    },
+    {
+      user_id: 1,
+      deck_list: File.open("public/images/yellowhybrid.jpg"),
+      status: "public",
+      content: "黄ハイ\r\nシャイン型",
+    },
+    {
+      user_id: 1,
+      deck_list: File.open("public/images/lilithzwart.jpg"),
+      status: "public",
+      content: "リリスズワルト",
+    },
+    {
+      user_id: 2,
+      deck_list: File.open("public/images/machinedramon.jpg"),
+      status: "public",
+      content: "ムゲンネイル\r\n高い",
     },
     {
       user_id: 3,
@@ -76,17 +118,18 @@ DeckList.create!(
       status: "public",
       content: "ジエス\r\nキメラモン強い",
     },
+
     {
-      user_id: 4,
-      deck_list: File.open("public/images/x-antibody.jpg"),
+      user_id: 5,
+      deck_list: File.open("public/images/armoragro.jpg"),
       status: "public",
-      content: "X抗体\r\nアルファモン軸",
+      content: "アーマー体",
     },
     {
-      user_id: 4,
-      deck_list: File.open("public/images/yellowhybrid.jpg"),
+      user_id: 5,
+      deck_list: File.open("public/images/green.jpg"),
       status: "public",
-      content: "黄ハイ\r\nシャイン型",
+      content: "シーヴァモン\r\nダークホース",
     },
   ]
 )
