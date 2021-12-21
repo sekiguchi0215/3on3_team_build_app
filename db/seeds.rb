@@ -363,3 +363,34 @@ TeamMessage.create!(
 )
 
 puts "チームメッセージの初期データの投入に成功しました。"
+
+Notification.create!(
+  [
+    {
+      visitor_id: 2,
+      visited_id: 1,
+      recruitment_id: 1,
+      action: "entry",
+    },
+    {
+      visitor_id: 2,
+      visited_id: 1,
+      room_id: 1,
+      action: "direct_message",
+    },
+    {
+      visitor_id: 3,
+      visited_id: 1,
+      team_id: 1,
+      action: "team_message",
+    },
+    {
+      visitor_id: 3,
+      visited_id: 1,
+      team_id: 3,
+      action: "invitation",
+    },
+  ]
+)
+
+puts "通知の初期データの投入に成功しました。"
