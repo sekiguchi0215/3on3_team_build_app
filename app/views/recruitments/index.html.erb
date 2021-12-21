@@ -12,7 +12,10 @@
       </div>
     </div>
   <% end %>
-  <div class="row row-cols-3 margin">
-    <%= render partial: "recruitment", collection: @recruitments %>
+  <div class="container">
+    <div class="row row-cols-3 margin">
+      <%= render partial: "recruitment", collection: @recruitments %>
+    </div>
+    <%= paginate @recruitments %>
   </div>
 </div>
