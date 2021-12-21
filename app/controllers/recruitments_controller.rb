@@ -1,7 +1,7 @@
 class RecruitmentsController < ApplicationController
   before_action :authenticate_user!, except: %i[index]
   before_action :set_recruitment, only: %i[edit update destroy]
-  PER_PAGE = 16
+  PER_PAGE = 9
 
   def new
     @recruitment = Recruitment.new
