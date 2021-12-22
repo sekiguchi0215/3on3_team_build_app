@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :member do
-    room_id { FactoryBot.create(:room).id }
+    team_id { FactoryBot.create(:team).id }
     user_id { FactoryBot.create(:user).id }
   end
 end
