@@ -37,6 +37,10 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
+  end
+
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be
@@ -44,8 +48,8 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 =begin
   # This allows you to limit a spec run to individual examples or groups
   # you care about by tagging them with `:focus` metadata. When nothing
