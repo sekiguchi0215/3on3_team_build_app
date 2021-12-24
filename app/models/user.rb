@@ -10,8 +10,9 @@ class User < ApplicationRecord
     end
   end
 
-  validates :email, uniqueness: true
-  validates :nickname, uniqueness: true
+  validates :email, uniqueness: true, length: { maximum: 255 }
+  validates :nickname, presence: true, uniqueness: true, length: { maximum: 30 }
+  validates :password, length: { minimum: 6 }
 
   mount_uploader :icon, ImageUploader
 
