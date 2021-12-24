@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "バリデーション" do
-    context "nickname が空の時" do
+    context "nickname が空のとき" do
       let(:user) { build(:user, nickname: "") }
       it "エラーが発生する" do
         expect(subject).to eq false
@@ -63,7 +63,7 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:email]).to include "は不正な値です"
       end
     end
-    context "password が空の場合" do
+    context "password が空のとき" do
       let(:user) { build(:user, password: "") }
       it "エラーが発生する" do
         expect(subject).to eq false
