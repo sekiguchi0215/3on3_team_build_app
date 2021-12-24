@@ -8,8 +8,8 @@ class Recruitment < ApplicationRecord
   validates :number_of_applicants, presence: true
   validates :recruitment_condition, presence: true
 
-  enum number_of_applicants: [:one, :two], _prefix: true
-  enum recruitment_condition: [:anyone, :enjoy, :seriousness], _prefix: true
+  enum number_of_applicants: { one: 1, two: 2 }
+  enum recruitment_condition: { anyone: 1, enjoy: 2, seriousness: 3 }
 
   def entried_by?(user)
     entries.any? { |entry| entry.user_id == user.id }
