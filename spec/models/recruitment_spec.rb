@@ -38,6 +38,5 @@ RSpec.describe Recruitment, type: :model do
         expect(recruitment.errors.messages[:recruitment_condition]).to include "を選択してください"
       end
     end
-    context ""
   end
 end
