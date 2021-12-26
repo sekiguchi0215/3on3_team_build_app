@@ -28,14 +28,14 @@ RSpec.describe Recruitment, type: :model do
       let(:recruitment) { build(:recruitment, number_of_applicants: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(recruitment.errors.messages[:number_of_applicants]).to include "を選択してください"
+        expect(recruitment.errors.messages[:number_of_applicants]).to include "を入力してください"
       end
     end
     context "recruitment_condition が空のとき" do
       let(:recruitment) { build(:recruitment, recruitment_condition: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(recruitment.errors.messages[:recruitment_condition]).to include "を選択してください"
+        expect(recruitment.errors.messages[:recruitment_condition]).to include "を入力してください"
       end
     end
   end
