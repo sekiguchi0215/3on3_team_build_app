@@ -74,7 +74,7 @@ RSpec.describe User, type: :model do
       let(:user) { build(:user, password: "a" * 5) }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(user.errors.messages[:password]).to include "は6文字で入力してください"
+        expect(user.errors.messages[:password]).to include "は6文字以上で入力してください"
       end
     end
   end
