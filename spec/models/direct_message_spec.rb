@@ -20,17 +20,17 @@ RSpec.describe DirectMessage, type: :model do
       end
     end
     context "user_id が空のとき" do
-      let(:direct_message) { build(:direct_message, user_id: nil) }
+      let(:direct_message) { build(:direct_message, user: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(direct_message.errors.messages[:user_id]).to include "がありません"
+        expect(direct_message.errors.messages[:user]).to include "を入力してください"
       end
     end
     context "room_id が空のとき" do
-      let(:direct_message) { build(:direct_message, room_id: nil) }
+      let(:direct_message) { build(:direct_message, room: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(direct_message.errors.messages[:room_id]).to include "がありません"
+        expect(direct_message.errors.messages[:room]).to include "を入力してください"
       end
     end
   end
