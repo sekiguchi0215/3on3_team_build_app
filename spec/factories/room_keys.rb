@@ -4,7 +4,7 @@ FactoryBot.define do
     association :room
 
     trait :skip_validate do
-      to_create { |i| i.save(validate: false) }
+      to_create { |i| i.save(null: true) }
     end
   end
 end
