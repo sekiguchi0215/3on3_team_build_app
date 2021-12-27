@@ -1,6 +1,10 @@
 FactoryBot.define do
   factory :member do
-    team_id { FactoryBot.create(:team).id }
-    user_id { FactoryBot.create(:user).id }
+    association :team
+    association :user
+
+    trait :skip_validate do
+      to_create { |i| i.save(null: true) }
+    end
   end
 end
