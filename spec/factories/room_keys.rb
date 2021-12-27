@@ -1,6 +1,10 @@
 FactoryBot.define do
   factory :room_key do
-    room_id { FactoryBot.create(:room).id }
-    user_id { FactoryBot.create(:user).id }
+    association :user
+    association :room
+
+    trait :skip_validate do
+      to_create { |i| i.save(validate: false) }
+    end
   end
 end
