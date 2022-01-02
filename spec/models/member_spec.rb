@@ -13,14 +13,14 @@ RSpec.describe Member, type: :model do
 
   describe "バリデーション" do
     context "user_id が存在しないとき" do
-      let(:member) { create(:member, :skip_validate, user_id: nil) }
+      let(:member) { build(:member, user_id: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(member.errors.messages[:user]).to include "を入力してください"
       end
     end
     context "team_id が存在しないとき" do
-      let(:member) { create(:member, :skip_validate, team_id: nil) }
+      let(:member) { build(:member, team_id: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(member.errors.messages[:team]).to include "を入力してください"

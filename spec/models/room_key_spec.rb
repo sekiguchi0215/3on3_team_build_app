@@ -13,14 +13,14 @@ RSpec.describe RoomKey, type: :model do
 
   describe "バリデーション" do
     context "user_id が存在しないとき" do
-      let(:room_key) { create(:room_key, :skip_validate, user: nil) }
+      let(:room_key) { build(:room_key, user: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(room_key.errors.messages[:user]).to include "を入力してください"
       end
     end
     context "room_id が存在しないとき" do
-      let(:room_key) { create(:room_key, :skip_validate, room: nil) }
+      let(:room_key) { build(:room_key, room: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(room_key.errors.messages[:room]).to include "を入力してください"
