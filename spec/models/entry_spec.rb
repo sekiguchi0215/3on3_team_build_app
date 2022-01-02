@@ -16,27 +16,16 @@ RSpec.describe Entry, type: :model do
       let(:entry) { build(:entry, user_id: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(entry.errors.messages[:user]).to include "がありません"
+        expect(entry.errors.messages[:user]).to include "を入力してください"
       end
     end
     context "recruitment_id が存在しないとき" do
-      let(:entry) { build(:entry, recruitment_id: nil) }
+      let(:user) { build(:user) }
+      let(:entry) { build(:entry, user_id: user.id, recruitment_id: nil) }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(entry.errors.messages[:recruitment]).to include "がありません"
-      end
-    end
-    context "user_id がすでに存在するとき" do
-      let(:user) { create_list(:user, 2) }
-      let(:recruitment) { create(:recruitment, user_id: 1) }
-      before do
-        create(:entry, user_id: 2, recruitment_id: recruitment.id)
-      end
-      let(:entry) { build(:entry, user_id: 2, recruitment_id: recruitment.id) }
-
-      it "エラーが発生する" do
-        expect(subject).to eq false
-        expect(entry.errors.messages[:user_id].to include "すでに存在します")
+        binding.pry
+        expect(entry.errors.messages[:recruitment]).to include "を入力してください"
       end
     end
   end
