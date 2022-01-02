@@ -6,11 +6,4 @@ class Entry < ApplicationRecord
                         scope: :recruitment_id,
                         message: "既に応募しています。",
                       }
-  validate :my_recruitment_cannot_entry
-
-  private
-
-  def my_recruitment_cannot_entry
-    errors.add(:base, "自分の募集に応募はできません。") if user_id == recruitment.user_id
-  end
 end
