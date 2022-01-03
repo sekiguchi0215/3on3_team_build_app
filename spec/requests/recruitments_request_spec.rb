@@ -18,4 +18,22 @@ RSpec.describe "Recruitments", type: :request do
       end
     end
   end
+
+  describe "GET #show" do
+    subject { get(recruitment_path(recruitment.id)) }
+
+    context "イベントが存在するとき" do
+      let(:recruitment) { create(:recruitment, user_id: user.id) }
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(200)
+      end
+
+      it "event_title が表示されている" do
+        subject
+        expect(response.body).to include recruitment.event_title
+      end
+    end
+  end
 end
