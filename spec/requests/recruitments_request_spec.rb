@@ -45,4 +45,44 @@ RSpec.describe "Recruitments", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "POST #create" do
+    subject { post(recruitments_path, params: params) }
+
+    context "パラメータが正常なとき" do
+      let(:params) { { recruitment: attributes_for(:recruitment) } }
+
+      it "投稿が保存される" do
+        expect { subject }.to change { Recruitment.count }.by(1)
+      end
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(302)
+      end
+
+      it "イベント一覧ページにリダイレクトされる" do
+        subject
+        expect(response).to redirect_to("http://www.example.com/recruitments")
+      end
+    end
+
+    context "パラメータが異常なとき" do
+      let(:params) { { recruitment: attributes_for(:recruitment, :invalid) } }
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(200)
+      end
+
+      it "投稿が保存されない" do
+        expect { subject }.not_to change(Recruitment, :count)
+      end
+
+      it "募集投稿ページがレンダリングされる" do
+        subject
+        expect(response.body).to include "募集を投稿する"
+      end
+    end
+  end
 end
