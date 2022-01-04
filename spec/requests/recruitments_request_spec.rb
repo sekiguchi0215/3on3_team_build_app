@@ -142,4 +142,25 @@ RSpec.describe "Recruitments", type: :request do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    subject { delete(recruitment_path(recruitment.id)) }
+    let!(:recruitment) { create(:recruitment, user_id: user.id) }
+
+    context "パラメータが正常なとき" do
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(302)
+      end
+
+      it "募集が削除される" do
+        expect { subject }.to change(Recruitment, :count).by(-1)
+      end
+
+      it "募集一覧にリダイレクトすること" do
+        subject
+        expect(response).to redirect_to("http://www.example.com/recruitments")
+      end
+    end
+  end
 end
