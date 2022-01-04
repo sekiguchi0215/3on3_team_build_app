@@ -104,4 +104,42 @@ RSpec.describe "Recruitments", type: :request do
       end
     end
   end
+
+  describe "PATCH #update" do
+    subject { patch(recruitment_path(recruitment.id), params: params) }
+    let(:recruitment) { create(:recruitment, user_id: user.id) }
+
+    context "パラメータが正常なとき" do
+      let(:params) { { recruitment: attributes_for(:recruitment) } }
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(302)
+      end
+
+      it "event_title が更新される" do
+        title = recruitment.event_title
+        new_title = params[:recruitment][:event_title]
+        expect { subject }.to change { recruitment.reload.event_title }.from(title).to(new_title)
+      end
+    end
+
+    context "パラメータが異常なとき" do
+      let(:params) { { recruitment: attributes_for(:recruitment, :invalid) } }
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(200)
+      end
+
+      it "event_title が更新されない" do
+        expect { subject }.not_to change(recruitment.reload, :event_title)
+      end
+
+      it "募集編集ページがレンダリングされる" do
+        subject
+        expect(response.body).to include "投稿内容を編集する"
+      end
+    end
+  end
 end
