@@ -9,7 +9,7 @@ RSpec.describe "Recruitments", type: :request do
   describe "GET #index" do
     subject { get(recruitments_path) }
 
-    context "イベントが存在するとき" do
+    context "募集が存在するとき" do
       let(:recruitment) { create(:recruitment, user_id: user.id) }
 
       it "リクエストが成功する" do
@@ -22,7 +22,7 @@ RSpec.describe "Recruitments", type: :request do
   describe "GET #show" do
     subject { get(recruitment_path(recruitment.id)) }
 
-    context "イベントが存在するとき" do
+    context "募集が存在するとき" do
       let(:recruitment) { create(:recruitment, user_id: user.id) }
 
       it "リクエストが成功する" do
@@ -82,6 +82,25 @@ RSpec.describe "Recruitments", type: :request do
       it "募集投稿ページがレンダリングされる" do
         subject
         expect(response.body).to include "募集を投稿する"
+      end
+    end
+  end
+
+  describe "GET #edit" do
+    subject { get(edit_recruitment_path(recruitment.id)) }
+
+    context "募集が存在するとき" do
+      let(:recruitment) { create(:recruitment, user_id: user.id) }
+      let(:recruitment_id) { recruitment.id }
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(200)
+      end
+
+      it "event_title が表示されている" do
+        subject
+        expect(response.body).to include recruitment.event_title
       end
     end
   end
