@@ -10,11 +10,16 @@ RSpec.describe "DeckLists", type: :request do
     subject { get(deck_lists_path) }
 
     context "デッキリストが存在するとき" do
-      let(:deck_list) { create(:deck_list, user_id: user.id) }
+      let!(:deck_list) { create(:deck_list, user_id: user.id) }
 
       it "リクエストが成功する" do
         subject
         expect(response).to have_http_status(200)
+      end
+
+      it "deck_list が表示されている" do
+        subject
+        expect(response.body).to include deck_list.deck_list.url
       end
     end
   end
