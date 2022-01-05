@@ -147,4 +147,25 @@ RSpec.describe "DeckLists", type: :request do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    subject { delete(deck_list_path(deck_list.id)) }
+    let!(:deck_list) { create(:deck_list, user_id: user.id) }
+
+    context "パラメータが正常なとき" do
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(302)
+      end
+
+      it "デッキリストが削除される" do
+        expect { subject }.to change(DeckList, :count).by(-1)
+      end
+
+      it "イベント一覧にリダイレクトすること" do
+        subject
+        expect(response).to redirect_to("http://www.example.com/deck_lists")
+      end
+    end
+  end
 end
