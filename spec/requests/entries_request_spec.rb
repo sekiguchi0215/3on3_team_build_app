@@ -22,4 +22,23 @@ RSpec.describe "Entries", type: :request do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    let!(:recruitment) { create(:recruitment, user_id: user.id) }
+    before do
+      create(:entry, user_id: user.id, recruitment_id: recruitment.id)
+    end
+    subject { delete(recruitment_entries_path(recruitment.id), xhr: true) }
+
+    context "パラメータが正常なとき" do
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(200)
+      end
+
+      it "entry が削除される" do
+        expect { subject }.to change(Entry, :count).by(-1)
+      end
+    end
+  end
 end
