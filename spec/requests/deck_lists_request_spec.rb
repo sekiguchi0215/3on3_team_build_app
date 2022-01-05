@@ -109,4 +109,42 @@ RSpec.describe "DeckLists", type: :request do
       end
     end
   end
+
+  describe "PATCH #update" do
+    subject { patch(deck_list_path(deck_list.id), params: params) }
+    let(:deck_list) { create(:deck_list, user_id: user.id) }
+
+    context "パラメータが正常なとき" do
+      let(:params) { { deck_list: attributes_for(:deck_list) } }
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(302)
+      end
+
+      it "content が更新される" do
+        content = deck_list.content
+        new_content = params[:deck_list][:content]
+        expect { subject }.to change { deck_list.reload.content }.from(content).to(new_content)
+      end
+    end
+
+    context "パラメータが異常なとき" do
+      let(:params) { { deck_list: attributes_for(:deck_list, :invalid) } }
+
+      it "リクエストが成功する" do
+        subject
+        expect(response).to have_http_status(200)
+      end
+
+      it "status が更新されない" do
+        expect { subject }.not_to change(deck_list.reload, :status)
+      end
+
+      it "編集ページがレンダリングされる" do
+        subject
+        expect(response.body).to include "編集中..."
+      end
+    end
+  end
 end
