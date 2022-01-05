@@ -18,7 +18,7 @@ class DeckListsController < ApplicationController
   def create
     @deck = current_user.deck_lists.new(deck_list_params)
     if @deck.save
-      redirect_to user_path(current_user.id), notice: "デッキを登録しました。"
+      redirect_to deck_lists_path, notice: "デッキを登録しました。"
     else
       flash.now[:alert] = "投稿に失敗しました。"
       render :new
