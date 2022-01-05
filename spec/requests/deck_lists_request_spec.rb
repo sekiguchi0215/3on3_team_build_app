@@ -36,4 +36,13 @@ RSpec.describe "DeckLists", type: :request do
       end
     end
   end
+
+  describe "GET #new" do
+    subject { get(new_deck_list_path) }
+
+    it "リクエストが成功する" do
+      subject
+      expect(response).to have_http_status(200)
+    end
+  end
 end
